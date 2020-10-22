@@ -30,7 +30,7 @@ app.use('/api/login',require('./routes/routerLogin'))
 app.use('/api/main',require('./routes/routerMain'))
 app.use('/api/rate',require('./routes/routerRate'))
 app.use('/api/saving',require('./routes/routerSavePublications'))
-
+app.use('/api/updatepwd',require('./routes/routerUpdatePwd'))
 
 //start server
 app.listen(process.env.PORT || 5000,()=>{

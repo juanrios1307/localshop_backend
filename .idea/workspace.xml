@@ -20,38 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07d2b8a8-b87b-411e-af51-a26b53643fd9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/controllerChat.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/controllerContact.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/controllerCrudProducto.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/controllerCrudUsers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/controllerFilters.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/controllerLogin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/controllerMain.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/controllerRate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/controllerSavePublications.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/database.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/errorHandler.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/jwt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/protectedRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/Comment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/ContactMessage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/Message.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/Producto.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/User.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/routerChat.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/routerContact.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/routerCrudProducto.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/routerCrudUser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/routerFilters.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/routerLogin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/routerMain.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/routerRate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/routerSavePublications.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/controllerUpdatePwd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/routerUpdatePwd.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/controllerCrudUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/controllerCrudUsers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/User.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +50,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/controllers" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -83,9 +59,14 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/routes" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/controllers" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -111,8 +92,17 @@
       <updated>1597929145037</updated>
       <workItem from="1597929146091" duration="22000" />
       <workItem from="1600349977941" duration="970000" />
-      <workItem from="1602174456830" duration="3087000" />
+      <workItem from="1602174456830" duration="3304000" />
+      <workItem from="1603374105779" duration="593000" />
     </task>
+    <task id="LOCAL-00001" summary="all all all">
+      <created>1602177686728</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1602177686728</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,6 +122,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="all all all" />
+    <option name="LAST_COMMIT_MESSAGE" value="all all all" />
   </component>
   <component name="WindowStateProjectService">
     <state x="177" y="27" width="1084" height="741" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602174792487">
@@ -142,21 +134,29 @@
       <screen x="72" y="29" width="1294" height="739" />
     </state>
     <state x="452" y="146" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/72.29.1294.739@72.29.1294.739" timestamp="1600350103383" />
-    <state width="1271" height="204" key="GridCell.Tab.0.bottom" timestamp="1602177021919">
+    <state width="1271" height="199" key="GridCell.Tab.0.bottom" timestamp="1603374642740">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1271" height="204" key="GridCell.Tab.0.bottom/72.27.1294.741@72.27.1294.741" timestamp="1602177021919" />
-    <state width="1271" height="204" key="GridCell.Tab.0.center" timestamp="1602177021909">
+    <state width="1271" height="199" key="GridCell.Tab.0.bottom/72.27.1294.741@72.27.1294.741" timestamp="1603374642740" />
+    <state width="1271" height="199" key="GridCell.Tab.0.center" timestamp="1603374642739">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1271" height="204" key="GridCell.Tab.0.center/72.27.1294.741@72.27.1294.741" timestamp="1602177021909" />
-    <state width="1271" height="204" key="GridCell.Tab.0.left" timestamp="1602177021907">
+    <state width="1271" height="199" key="GridCell.Tab.0.center/72.27.1294.741@72.27.1294.741" timestamp="1603374642739" />
+    <state width="1271" height="199" key="GridCell.Tab.0.left" timestamp="1603374642739">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1271" height="204" key="GridCell.Tab.0.left/72.27.1294.741@72.27.1294.741" timestamp="1602177021907" />
-    <state width="1271" height="204" key="GridCell.Tab.0.right" timestamp="1602177021912">
+    <state width="1271" height="199" key="GridCell.Tab.0.left/72.27.1294.741@72.27.1294.741" timestamp="1603374642739" />
+    <state width="1271" height="199" key="GridCell.Tab.0.right" timestamp="1603374642740">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1271" height="204" key="GridCell.Tab.0.right/72.27.1294.741@72.27.1294.741" timestamp="1602177021912" />
+    <state width="1271" height="199" key="GridCell.Tab.0.right/72.27.1294.741@72.27.1294.741" timestamp="1603374642740" />
+    <state x="208" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1603374694163">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state x="208" y="31" width="1022" height="737" key="SettingsEditor/72.27.1294.741@72.27.1294.741" timestamp="1603374694163" />
+    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1602177690495">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741@72.27.1294.741" timestamp="1602177690495" />
   </component>
 </project>
