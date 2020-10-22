@@ -20,14 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07d2b8a8-b87b-411e-af51-a26b53643fd9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controllers/controllerUpdatePwd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/routerUpdatePwd.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/controllerCrudUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/controllerCrudUsers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/User.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +86,8 @@
       <workItem from="1597929146091" duration="22000" />
       <workItem from="1600349977941" duration="970000" />
       <workItem from="1602174456830" duration="3304000" />
-      <workItem from="1603374105779" duration="593000" />
+      <workItem from="1603374105779" duration="950000" />
+      <workItem from="1603378142087" duration="146000" />
     </task>
     <task id="LOCAL-00001" summary="all all all">
       <created>1602177686728</created>
@@ -102,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602177686728</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="registro, login, enviarEmail, updatePwd">
+      <created>1603375037768</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603375037768</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,7 +124,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="all all all" />
-    <option name="LAST_COMMIT_MESSAGE" value="all all all" />
+    <MESSAGE value="registro, login, enviarEmail, updatePwd" />
+    <option name="LAST_COMMIT_MESSAGE" value="registro, login, enviarEmail, updatePwd" />
   </component>
   <component name="WindowStateProjectService">
     <state x="177" y="27" width="1084" height="741" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602174792487">
@@ -134,29 +136,33 @@
       <screen x="72" y="29" width="1294" height="739" />
     </state>
     <state x="452" y="146" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/72.29.1294.739@72.29.1294.739" timestamp="1600350103383" />
-    <state width="1271" height="199" key="GridCell.Tab.0.bottom" timestamp="1603374642740">
+    <state width="1271" height="159" key="GridCell.Tab.0.bottom" timestamp="1603375056281">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1271" height="199" key="GridCell.Tab.0.bottom/72.27.1294.741@72.27.1294.741" timestamp="1603374642740" />
-    <state width="1271" height="199" key="GridCell.Tab.0.center" timestamp="1603374642739">
+    <state width="1271" height="159" key="GridCell.Tab.0.bottom/72.27.1294.741@72.27.1294.741" timestamp="1603375056280" />
+    <state width="1271" height="159" key="GridCell.Tab.0.center" timestamp="1603375056279">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1271" height="199" key="GridCell.Tab.0.center/72.27.1294.741@72.27.1294.741" timestamp="1603374642739" />
-    <state width="1271" height="199" key="GridCell.Tab.0.left" timestamp="1603374642739">
+    <state width="1271" height="159" key="GridCell.Tab.0.center/72.27.1294.741@72.27.1294.741" timestamp="1603375056279" />
+    <state width="1271" height="159" key="GridCell.Tab.0.left" timestamp="1603375056278">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1271" height="199" key="GridCell.Tab.0.left/72.27.1294.741@72.27.1294.741" timestamp="1603374642739" />
-    <state width="1271" height="199" key="GridCell.Tab.0.right" timestamp="1603374642740">
+    <state width="1271" height="159" key="GridCell.Tab.0.left/72.27.1294.741@72.27.1294.741" timestamp="1603375056278" />
+    <state width="1271" height="159" key="GridCell.Tab.0.right" timestamp="1603375056280">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1271" height="199" key="GridCell.Tab.0.right/72.27.1294.741@72.27.1294.741" timestamp="1603374642740" />
+    <state width="1271" height="159" key="GridCell.Tab.0.right/72.27.1294.741@72.27.1294.741" timestamp="1603375056280" />
     <state x="208" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1603374694163">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="208" y="31" width="1022" height="737" key="SettingsEditor/72.27.1294.741@72.27.1294.741" timestamp="1603374694163" />
-    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1602177690495">
+    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603375039114">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741@72.27.1294.741" timestamp="1602177690495" />
+    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741@72.27.1294.741" timestamp="1603375039114" />
+    <state x="382" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1603375027171">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state x="382" y="89" width="672" height="678" key="search.everywhere.popup/72.27.1294.741@72.27.1294.741" timestamp="1603375027171" />
   </component>
 </project>

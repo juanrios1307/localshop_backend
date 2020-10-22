@@ -1,14 +1,19 @@
 const ControllerRate={}
-const Comment=require('../models/Comment')
+const Producto=require('../models/Producto')
 
 ControllerRate.obtener = (req,res)=>{
-    Comment.find({}, function (err, comments) {
+    const id=req.params.id
+
+    Producto.findById(id, {"Comments":1 ,"_id":0},async function  (err, comments) {
         if (err)
             // Si se ha producido un error, salimos de la función devolviendo  código http 422 (Unprocessable Entity).
             return (res.type('json').status(422).send({ status: "error", data: "No se puede procesar la entidad, datos incorrectos!" }));
 
-        // También podemos devolver así la información:
-        res.status(200).json({ status: "ok", data: comments });
+
+        const pubs=comments.Comments
+
+        res.status(200).json({ status: "ok", data: pubs});
+
     })
 }
 
@@ -19,20 +24,25 @@ ControllerRate.crear = async (req,res)=>{
     //Se reciben los datos a enviar
     const {comment,rating} =req.body //atributos
 
+    const Comment={user,comment,rating};
 
-    //se registran los datos en el modelo y se suben a la DB
-    const registro=new Comment({
-        user,
-        producto,
-        comment,
-        rating
-    })
-    await  registro.save()
+    User.findById(user,function (err,user){
+        if(err || !user){
+            res.status(404).json({ status: "error", data: "No se ha encontrado el usuario con id: "+user});
+        }else{
+            Producto.findByIdAndUpdate(producto,  {  $push : { Comments :Comment}}, function (err) {
+                if (err) {
+                    // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                    res.status(404).json({ status: "error", data: "No se ha encontrado el producto con id: "+producto});
+                } else {
+                    // Devolvemos el código HTTP 200.
+                    res.status(200).json({ status: "ok", data: "Comentario guardado in producto" });
 
-    //Se genera respuesta de exito
-    res.json({
-        mensaje:"Registro guardado"
-    })
+                }
+            });
+        }
+    });
+
 
 }
 

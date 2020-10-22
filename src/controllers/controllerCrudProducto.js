@@ -54,7 +54,7 @@ ControllerProducto.crear = async (req,res)=>{
 
             await  registro.save()
 
-            res.status(200).json({ status: "ok", data: "Prudcto guardado"});
+            res.status(200).json({ status: "ok", data: "Producto guardado"});
         }
     });
 

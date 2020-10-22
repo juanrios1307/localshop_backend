@@ -10,7 +10,7 @@ ControllerMain.obtenerCategorias = (req, res) =>{
         console.log(categoria)
 
 
-        Producto.find({categoria: categoria}, {"categoria": 1}, function (err, products) {
+        Producto.find({categoria: categoria}, function (err, products) {
             if (err)
                 // Si se ha producido un error, salimos de la función devolviendo  código http 422
                 return (res.type('json').status(422).send({
