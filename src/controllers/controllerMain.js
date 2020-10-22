@@ -58,14 +58,53 @@ ControllerMain.obtenerSellers =(req, res)=>{
 }
 
 ControllerMain.obtenerProductos =(req, res)=>{
-    Producto.find({}, function (err, productos) {
-        if (err)
-            // Si se ha producido un error, salimos de la función devolviendo  código http 422 (Unprocessable Entity).
-            return (res.type('json').status(422).send({ status: "error", data: "No se puede procesar la entidad, datos incorrectos!" }));
+    const producto=req.headers['producto']
+    const id=req.headers['id']
 
-        // También podemos devolver así la información:
-        res.status(200).json({ status: "ok", data: productos });
-    })
+    if(producto && producto!="null"){
+        const producto=req.headers['producto']
+        console.log(producto)
+
+
+        Producto.find({"nombre":producto}, function (err, products) {
+            if (err)
+                // Si se ha producido un error, salimos de la función devolviendo  código http 422 (Unprocessable Entity).
+                return (res.type('json').status(422).send({ status: "error", data: "No se puede procesar la entidad, datos incorrectos!" }));
+
+            // También podemos devolver así la información:
+            res.status(200).json({ status: "ok", data: products });
+        }).populate('user');
+
+    }else {
+        if(id && id!="null"){
+            //si se envia la peticion con parametros
+            Producto.findById(id, function (err, producto) {
+                if (err) {
+                    // Devolvemos el código HTTP 404, de producto no encontrado por su id.
+                    res.status(404).json({ status: "error", data: "No se ha encontrado el producto con id: "+id});
+                } else {
+
+                    res.status(200).json({ status: "ok", data: producto });
+
+                }
+            }).populate('user')
+
+        }else {
+            console.log("No producto")
+            // se buscan todos los Workers
+            Producto.find({}, function (err, productos) {
+                if (err)
+                    // Si se ha producido un error, salimos de la función devolviendo  código http 422 (Unprocessable Entity).
+                    return (res.type('json').status(422).send({
+                        status: "error",
+                        data: "No se puede procesar la entidad, datos incorrectos!"
+                    }));
+
+                // También podemos devolver así la información:
+                res.status(200).json({status: "ok", data: productos});
+            }).populate('user');
+        }
+    }
 }
 
 module.exports=ControllerMain
