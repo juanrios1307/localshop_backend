@@ -49,7 +49,9 @@ ControllerProducto.crear = async (req,res)=>{
                 especificaciones,
                 precio,
                 categoria,
-                nombre
+                nombre,
+                promedio:"0",
+                Comments:[]
             })
 
             await  registro.save()

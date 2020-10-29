@@ -15,6 +15,6 @@ route.all('/', function(req, res, next) {
 route.get('/',controlMain.obtenerProductos)
 route.get('/sellers',controlMain.obtenerSellers)
 route.get('/categories',controlMain.obtenerCategorias)
-
+route.get('/promworkers',controlMain.obtenerPromotedProducts)
 
 module.exports =route

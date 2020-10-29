@@ -11,6 +11,7 @@ const Producto = mongoose.model('producto',{
     precio : {type:String, required:true},
     categoria : {type: String ,required:true},
     nombre : {type: String , required:true},
+    promedio:{type:String,required:true},
     Comments:  [
         {user: {type: Schema.Types.ObjectId, ref: 'users'},
             comment: {type:String, required:true},

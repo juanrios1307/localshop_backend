@@ -30,16 +30,35 @@ ControllerRate.crear = async (req,res)=>{
         if(err || !user){
             res.status(404).json({ status: "error", data: "No se ha encontrado el usuario con id: "+user});
         }else{
-            Producto.findByIdAndUpdate(producto,  {  $push : { Comments :Comment}}, function (err) {
+            Producto.findById(producto,function (err,product){
                 if (err) {
                     // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
-                    res.status(404).json({ status: "error", data: "No se ha encontrado el producto con id: "+producto});
+                    res.status(404).json({ status: "error", data: "No se ha encontrado el worker con id: "+worker});
                 } else {
-                    // Devolvemos el código HTTP 200.
-                    res.status(200).json({ status: "ok", data: "Comentario guardado in producto" });
+                    var promedio=((product.promedio*product.Comments.length)+parseInt(Comment.rating))/(product.Comments.length+1)
 
+                    Producto.findByIdAndUpdate(producto,  {  $push : { Comments :Comment}}, function (err) {
+                        if (err) {
+                            // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                            res.status(404).json({ status: "error", data: "No se ha encontrado el worker con id: "+producto});
+                        } else {
+                            Producto.findByIdAndUpdate(producto,  {  $set : { promedio :promedio}}, function (err) {
+                                if (err) {
+                                    // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                                    res.status(404).json({ status: "error", data: "No se ha encontrado el producto con id: "+producto});
+                                } else {
+
+                                    // Devolvemos el código HTTP 200.
+                                    res.status(200).json({ status: "ok", data: "Comentario guardado en producto" });
+
+                                }
+                            });
+
+
+                        }
+                    });
                 }
-            });
+            })
         }
     });
 

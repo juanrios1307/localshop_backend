@@ -43,7 +43,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/controllers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/models" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -55,12 +55,13 @@
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/routes" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/models" />
       <recent name="$PROJECT_DIR$/src/controllers" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/routes" />
     </key>
   </component>
   <component name="RunManager">
@@ -88,6 +89,8 @@
       <workItem from="1602174456830" duration="3304000" />
       <workItem from="1603374105779" duration="950000" />
       <workItem from="1603378142087" duration="146000" />
+      <workItem from="1603380284552" duration="1841000" />
+      <workItem from="1603386576385" duration="15000" />
     </task>
     <task id="LOCAL-00001" summary="all all all">
       <created>1602177686728</created>
@@ -103,7 +106,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603375037768</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="controllers">
+      <created>1603381236022</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603381236022</updated>
+    </task>
+    <task id="LOCAL-00004" summary="controllers">
+      <created>1603382018234</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603382018234</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,16 +142,18 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="all all all" />
     <MESSAGE value="registro, login, enviarEmail, updatePwd" />
-    <option name="LAST_COMMIT_MESSAGE" value="registro, login, enviarEmail, updatePwd" />
+    <MESSAGE value="controllers" />
+    <option name="LAST_COMMIT_MESSAGE" value="controllers" />
   </component>
   <component name="WindowStateProjectService">
     <state x="177" y="27" width="1084" height="741" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602174792487">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="177" y="27" width="1084" height="741" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1294.741@72.27.1294.741" timestamp="1602174792487" />
-    <state x="452" y="146" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600350103383">
-      <screen x="72" y="29" width="1294" height="739" />
+    <state x="452" y="144" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603381966080">
+      <screen x="72" y="27" width="1294" height="741" />
     </state>
+    <state x="452" y="144" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/72.27.1294.741@72.27.1294.741" timestamp="1603381966080" />
     <state x="452" y="146" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/72.29.1294.739@72.29.1294.739" timestamp="1600350103383" />
     <state width="1271" height="159" key="GridCell.Tab.0.bottom" timestamp="1603375056281">
       <screen x="72" y="27" width="1294" height="741" />
@@ -156,10 +175,10 @@
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="208" y="31" width="1022" height="737" key="SettingsEditor/72.27.1294.741@72.27.1294.741" timestamp="1603374694163" />
-    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603375039114">
+    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603382019810">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741@72.27.1294.741" timestamp="1603375039114" />
+    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741@72.27.1294.741" timestamp="1603382019810" />
     <state x="382" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1603375027171">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
