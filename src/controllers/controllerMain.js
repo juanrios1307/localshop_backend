@@ -10,7 +10,7 @@ ControllerMain.obtenerCategorias = (req, res) =>{
         console.log(categoria)
 
 
-        Producto.find({categoria: categoria}, function (err, products) {
+        Producto.find({ categoria : {$regex : "^"+categoria } }, function (err, products) {
             if (err)
                 // Si se ha producido un error, salimos de la función devolviendo  código http 422
                 return (res.type('json').status(422).send({
@@ -66,7 +66,7 @@ ControllerMain.obtenerProductos =(req, res)=>{
         console.log(producto)
 
 
-        Producto.find({"nombre":producto}, function (err, products) {
+        Producto.find({ nombre : {$regex : "^"+producto } }, function (err, products) {
             if (err)
                 // Si se ha producido un error, salimos de la función devolviendo  código http 422 (Unprocessable Entity).
                 return (res.type('json').status(422).send({ status: "error", data: "No se puede procesar la entidad, datos incorrectos!" }));
