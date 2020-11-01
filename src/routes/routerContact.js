@@ -18,8 +18,6 @@ route.all('/', function(req, res, next) {
     next()
 });
 
-
-route.get('/',protectedRoutes.verifyToken,controlUser.obtener)
 route.post('/:id',protectedRoutes.verifyToken,controlUser.crear)
 
 

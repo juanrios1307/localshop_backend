@@ -91,6 +91,8 @@
       <workItem from="1603378142087" duration="146000" />
       <workItem from="1603380284552" duration="1841000" />
       <workItem from="1603386576385" duration="15000" />
+      <workItem from="1603976895531" duration="2221000" />
+      <workItem from="1603982382450" duration="1023000" />
     </task>
     <task id="LOCAL-00001" summary="all all all">
       <created>1602177686728</created>
@@ -120,7 +122,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603382018234</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ok rating, prom products">
+      <created>1603979663280</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603979663280</updated>
+    </task>
+    <task id="LOCAL-00006" summary="busqueda ok">
+      <created>1603980216842</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1603980216842</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,17 +159,19 @@
     <MESSAGE value="all all all" />
     <MESSAGE value="registro, login, enviarEmail, updatePwd" />
     <MESSAGE value="controllers" />
-    <option name="LAST_COMMIT_MESSAGE" value="controllers" />
+    <MESSAGE value="ok rating, prom products" />
+    <MESSAGE value="busqueda ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="busqueda ok" />
   </component>
   <component name="WindowStateProjectService">
     <state x="177" y="27" width="1084" height="741" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602174792487">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="177" y="27" width="1084" height="741" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1294.741@72.27.1294.741" timestamp="1602174792487" />
-    <state x="452" y="144" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603381966080">
+    <state x="452" y="144" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603977394443">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="452" y="144" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/72.27.1294.741@72.27.1294.741" timestamp="1603381966080" />
+    <state x="452" y="144" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/72.27.1294.741@72.27.1294.741" timestamp="1603977394443" />
     <state x="452" y="146" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/72.29.1294.739@72.29.1294.739" timestamp="1600350103383" />
     <state width="1271" height="159" key="GridCell.Tab.0.bottom" timestamp="1603375056281">
       <screen x="72" y="27" width="1294" height="741" />
@@ -175,10 +193,10 @@
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="208" y="31" width="1022" height="737" key="SettingsEditor/72.27.1294.741@72.27.1294.741" timestamp="1603374694163" />
-    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603382019810">
+    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603980218206">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741@72.27.1294.741" timestamp="1603382019810" />
+    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741@72.27.1294.741" timestamp="1603980218206" />
     <state x="382" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1603375027171">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
