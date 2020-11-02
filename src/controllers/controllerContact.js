@@ -1,5 +1,8 @@
 const ControllerContact={}
 const User=require('../models/User')
+const Producto=require('../models/Producto')
+const nodemailer = require("nodemailer");
+
 
 ControllerContact.crear= async (req,res)=>{
 
@@ -10,24 +13,24 @@ ControllerContact.crear= async (req,res)=>{
     //Se reciben los datos a enviar
     const {mensaje,asunto} =req.body //atributos
 
-    User.findById(seller, function (err, seller) {
+    Producto.findById(seller, function (err, seller) {
         if (err) {
             // Devolvemos el código HTTP 404, de producto no encontrado por su id.
-            res.status(404).json({ status: "error", data: "No se ha encontrado el worker con id: "+req.params.id});
+            res.status(404).json({ status: "error", data: "No se ha encontrado el producto con id: "+req.params.id});
         } else {
             // También podemos devolver así la información:
             var transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
-                    user: 'quickservices20202@gmail.com',
+                    user: 'localshop20202@gmail.com',
                     pass: '2juan1santiago'
                 }
             });
 
 
             var mailOptions = {
-                from: 'quickservices20202@gmail.com',
-                to: seller.correo,
+                from: 'localshop20202@gmail.com',
+                to: seller.user.correo,
                 subject: asunto,
                 text: mensaje
             };

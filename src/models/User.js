@@ -12,7 +12,8 @@ const User = mongoose.model('users',{
     cedula: {type: String , required:true, unique: true},
     ciudad:  {type:String, required:true},
     isSeller: {type: Boolean},
-    Save:  [{type: Schema.Types.ObjectId, ref: 'producto' }]
+    Save:  [{type: Schema.Types.ObjectId, ref: 'producto' }],
+    Productos: [{type: Schema.Types.ObjectId, ref: 'producto' }]
 })
 
 // Exportamos el modelo para usarlo en otros ficheros

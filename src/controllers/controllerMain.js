@@ -83,7 +83,6 @@ ControllerMain.obtenerProductos =(req, res)=>{
                     // Devolvemos el código HTTP 404, de producto no encontrado por su id.
                     res.status(404).json({ status: "error", data: "No se ha encontrado el producto con id: "+id});
                 } else {
-
                     res.status(200).json({ status: "ok", data: producto });
 
                 }

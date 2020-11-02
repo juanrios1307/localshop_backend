@@ -12,7 +12,7 @@ route.all('/', function(req, res, next) {
     next()
 });
 
-route.get('/:id',protectedRoutes.verifyToken,controlRate.obtener)
+route.get('/:id',controlRate.obtener)
 route.put('/:id',protectedRoutes.verifyToken,controlRate.crear)
 
 module.exports =route
