@@ -21,6 +21,7 @@ route.all('/', function(req, res, next) {
 
 route.get('/',protectedRoutes.verifyToken,controlSave.obtener)
 route.put('/',protectedRoutes.verifyToken,controlSave.crear)
+route.put('/:id',protectedRoutes.verifyToken,controlSave.eliminar)
 
 
 module.exports =route

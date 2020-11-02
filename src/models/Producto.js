@@ -12,6 +12,7 @@ const Producto = mongoose.model('producto',{
     categoria : {type: String ,required:true},
     nombre : {type: String , required:true},
     promedio:{type:String,required:true},
+    date: {type: Date, default: Date.now},
     Comments:  [
         {user: {type: Schema.Types.ObjectId, ref: 'users'},
             comment: {type:String, required:true},

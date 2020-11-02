@@ -34,7 +34,7 @@ ControllerProducto.obtener = (req,res)=>{
 
             var product=[]
 
-            const pubs=productArr.Producto
+            const pubs=productArr.Productos
 
             for(var i=0;i<pubs.length;i++){
 
