@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07d2b8a8-b87b-411e-af51-a26b53643fd9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="07d2b8a8-b87b-411e-af51-a26b53643fd9" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,6 +94,7 @@
       <workItem from="1604246727117" duration="1524000" />
       <workItem from="1604328715791" duration="784000" />
       <workItem from="1604338080046" duration="5000" />
+      <workItem from="1604347918605" duration="6600000" />
     </task>
     <task id="LOCAL-00001" summary="all all all">
       <created>1602177686728</created>
@@ -146,7 +145,21 @@
       <option name="project" value="LOCAL" />
       <updated>1604251265654</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="epics">
+      <created>1604353746345</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1604353746345</updated>
+    </task>
+    <task id="LOCAL-00009" summary="epics">
+      <created>1604355003742</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1604355003742</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,7 +185,8 @@
     <MESSAGE value="ok rating, prom products" />
     <MESSAGE value="busqueda ok" />
     <MESSAGE value="updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates" />
+    <MESSAGE value="epics" />
+    <option name="LAST_COMMIT_MESSAGE" value="epics" />
   </component>
   <component name="WindowStateProjectService">
     <state x="177" y="27" width="1084" height="741" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602174792487">
@@ -184,30 +198,30 @@
     </state>
     <state x="452" y="144" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/72.27.1294.741@72.27.1294.741" timestamp="1603977394443" />
     <state x="452" y="146" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/72.29.1294.739@72.29.1294.739" timestamp="1600350103383" />
-    <state width="1271" height="274" key="GridCell.Tab.0.bottom" timestamp="1604329500130">
+    <state width="1271" height="188" key="GridCell.Tab.0.bottom" timestamp="1604355047495">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1271" height="274" key="GridCell.Tab.0.bottom/72.27.1294.741@72.27.1294.741" timestamp="1604329500130" />
-    <state width="1271" height="274" key="GridCell.Tab.0.center" timestamp="1604329500130">
+    <state width="1271" height="188" key="GridCell.Tab.0.bottom/72.27.1294.741@72.27.1294.741" timestamp="1604355047495" />
+    <state width="1271" height="188" key="GridCell.Tab.0.center" timestamp="1604355047495">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1271" height="274" key="GridCell.Tab.0.center/72.27.1294.741@72.27.1294.741" timestamp="1604329500130" />
-    <state width="1271" height="274" key="GridCell.Tab.0.left" timestamp="1604329500130">
+    <state width="1271" height="188" key="GridCell.Tab.0.center/72.27.1294.741@72.27.1294.741" timestamp="1604355047495" />
+    <state width="1271" height="188" key="GridCell.Tab.0.left" timestamp="1604355047494">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1271" height="274" key="GridCell.Tab.0.left/72.27.1294.741@72.27.1294.741" timestamp="1604329500130" />
-    <state width="1271" height="274" key="GridCell.Tab.0.right" timestamp="1604329500130">
+    <state width="1271" height="188" key="GridCell.Tab.0.left/72.27.1294.741@72.27.1294.741" timestamp="1604355047494" />
+    <state width="1271" height="188" key="GridCell.Tab.0.right" timestamp="1604355047495">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1271" height="274" key="GridCell.Tab.0.right/72.27.1294.741@72.27.1294.741" timestamp="1604329500130" />
+    <state width="1271" height="188" key="GridCell.Tab.0.right/72.27.1294.741@72.27.1294.741" timestamp="1604355047495" />
     <state x="208" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1603374694163">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="208" y="31" width="1022" height="737" key="SettingsEditor/72.27.1294.741@72.27.1294.741" timestamp="1603374694163" />
-    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1604251268001">
+    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1604355037508">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741@72.27.1294.741" timestamp="1604251268001" />
+    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741@72.27.1294.741" timestamp="1604355037508" />
     <state x="382" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1603375027171">
       <screen x="72" y="27" width="1294" height="741" />
     </state>

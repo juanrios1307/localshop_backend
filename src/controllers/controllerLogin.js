@@ -20,7 +20,7 @@ ControllerLogin.authenticate= async (req,res)=> {
         });
 
     }else {
-        res.status(204).json({ mensaje: "Usuario o contraseña incorrectos"})
+        res.status(203).json({ mensaje: "Usuario o contraseña incorrectos"})
     }
 }
 

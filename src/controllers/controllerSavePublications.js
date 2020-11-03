@@ -40,7 +40,7 @@ ControllerSave.crear=(req,res)=>{
 
     Product.findById(Save,function (err, producto){
         if(err || !producto){
-            res.status(404).json({ status: "error", data: "No se ha encontrado el worker con id: "+Save});
+            res.status(404).json({ status: "error", data: "No se ha encontrado el producto con id: "+Save});
         }else{
             User.findByIdAndUpdate(id,  {  $push : { Save : producto }}, function (err) {
                 if (err) {
@@ -48,7 +48,7 @@ ControllerSave.crear=(req,res)=>{
                     res.status(404).json({ status: "error", data: "No se ha encontrado el usuario con id: "+id});
                 } else {
                     // Devolvemos el código HTTP 200.
-                    res.status(200).json({ status: "ok", data: "Producto guardado in list" });
+                    res.status(200).json({ status: "ok", data: "Producto guardado en tu carrito de compras" });
 
                 }
             });
