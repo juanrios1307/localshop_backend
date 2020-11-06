@@ -89,7 +89,6 @@ ControllerMain.obtenerProductos =(req, res)=>{
             }).populate('user')
 
         }else {
-            console.log("No producto")
             // se buscan todos los Workers
             Producto.find({}, function (err, productos) {
                 if (err)
