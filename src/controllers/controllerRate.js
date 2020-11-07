@@ -10,8 +10,6 @@ ControllerRate.obtener = (req,res)=>{
             // Si se ha producido un error, salimos de la función devolviendo  código http 422 (Unprocessable Entity).
             return (res.type('json').status(422).send({ status: "error", data: "No se puede procesar la entidad, datos incorrectos!" }));
 
-        console.log("Comments: "+comments.Comments)
-        console.log("Comments 1 : "+comments)
         const pubs=comments.Comments
 
         res.status(200).json({ status: "ok", data: pubs});

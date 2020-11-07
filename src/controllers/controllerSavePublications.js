@@ -37,23 +37,49 @@ ControllerSave.crear=(req,res)=>{
     const id=req.decoded.sub
     const {Save}=req.body
 
+    User.findById(id, {"Save":1 ,"_id":0},async function  (err, saves) {
+        if (err)
+            // Si se ha producido un error, salimos de la función devolviendo  código http 422 (Unprocessable Entity).
+            return (res.type('json').status(422).send({ status: "error", data: "No se puede procesar la entidad, datos incorrectos!" }));
 
-    Product.findById(Save,function (err, producto){
-        if(err || !producto){
-            res.status(404).json({ status: "error", data: "No se ha encontrado el producto con id: "+Save});
-        }else{
-            User.findByIdAndUpdate(id,  {  $push : { Save : producto }}, function (err) {
-                if (err) {
-                    // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
-                    res.status(404).json({ status: "error", data: "No se ha encontrado el usuario con id: "+id});
+        var workers=[]
+
+        const pubs=saves.Save
+        var bool=false
+
+        for(var i=0;i<pubs.length;i++){
+            if(pubs[i] == Save){
+                bool=true
+            }
+        }
+        if(bool==false) {
+            Product.findById(Save, function (err, producto) {
+                if (err || !producto) {
+                    res.status(404).json({status: "error", data: "No se ha encontrado el producto con id: " + Save});
                 } else {
-                    // Devolvemos el código HTTP 200.
-                    res.status(200).json({ status: "ok", data: "Producto guardado en tu carrito de compras" });
+                    User.findByIdAndUpdate(id, {$push: {Save: producto}}, function (err) {
+                        if (err) {
+                            // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                            res.status(404).json({
+                                status: "error",
+                                data: "No se ha encontrado el usuario con id: " + id
+                            });
+                        } else {
+                            // Devolvemos el código HTTP 200.
+                            res.status(200).json({status: "ok", data: "Producto guardado en tu carrito de compras"});
 
+                        }
+                    });
                 }
             });
+        }else{
+            res.status(200).json({ status: "ok", data: "El producto ya está en tu carrito de compras"});
         }
-    });
+
+
+    })
+
+
 
 }
 
