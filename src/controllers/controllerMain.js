@@ -61,6 +61,10 @@ ControllerMain.obtenerProductos =(req, res)=>{
     const producto=req.headers['producto']
     const id=req.headers['id']
 
+    const promedio=req.headers['promedio']
+    const date=req.headers['date']
+    const precio=req.headers['precio']
+
     if(producto && producto!="null"){
         const producto=req.headers['producto']
         console.log(producto)
@@ -73,7 +77,7 @@ ControllerMain.obtenerProductos =(req, res)=>{
 
             // También podemos devolver así la información:
             res.status(200).json({ status: "ok", data: products });
-        }).populate('user');
+        }).populate('user').sort({"promedio": (promedio == "true" ? -1 : 1)}).sort({"date": (date == "true" ? 1 : -1)}).sort({"precio": (precio == "true" ? -1 : 1)});
 
     }else {
         if(id && id!="null"){
@@ -100,7 +104,7 @@ ControllerMain.obtenerProductos =(req, res)=>{
 
                 // También podemos devolver así la información:
                 res.status(200).json({status: "ok", data: productos});
-            }).populate('user');
+            }).populate('user').sort({"promedio": (promedio == "true" ? -1 : 1)}).sort({"date": (date == "true" ? 1 : -1)}).sort({"precio": (precio == "true" ? -1 : 1)});
         }
     }
 }

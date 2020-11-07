@@ -7,7 +7,7 @@ var Schema=mongoose.Schema;
 const Producto = mongoose.model('producto',{
     user: { type: Schema.ObjectId, ref: 'users' },
     images:  [{type: String}],
-    especificaciones: {type:String, required:true},
+    descripcion: {type:String, required:true},
     precio : {type:Number, required:true},
     categoria : {type: String ,required:true},
     nombre : {type: String , required:true},

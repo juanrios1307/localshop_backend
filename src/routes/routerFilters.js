@@ -14,7 +14,7 @@ route.all('/', function(req, res, next) {
 route.get('/precio',controlFilter.obtenerPrecio)
 route.get('/ciudad',controlFilter.obtenerCiudad)
 route.get('/categoria',controlFilter.obtenerCategoria)
-route.get('/promedio',controlFilter.obtenerPromedio)
+route.get('/',controlFilter.obtenerPromedio)
 route.get('/fecha',controlFilter.obtenerFecha)
 
 
