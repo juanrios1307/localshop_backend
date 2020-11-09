@@ -152,7 +152,17 @@ ControllerProducto.eliminar=(req, res)=>{
                     }
                     else
                     {
-                        res.status(200).json({ status: "ok", data: "Se ha eliminado correctamente el anuncio con id: "+req.params.id});
+                        User.findByIdAndUpdate(user,  {  $pull : { Productos : req.params.id }}, function (err) {
+                            if (err) {
+                                // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                                res.status(404).json({ status: "error", data: "No se ha encontrado el usuario con id: "+user});
+                            } else {
+                                // Devolvemos el código HTTP 200.
+                                res.status(200).json({ status: "ok", data: "Producto eliminado satisfactoriamente" });
+
+                            }
+                        });
+
 
                     }
                 });
