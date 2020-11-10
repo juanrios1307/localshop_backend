@@ -67,7 +67,6 @@ ControllerMain.obtenerProductos =(req, res)=>{
 
     if(producto && producto!="null"){
         const producto=req.headers['producto']
-        console.log(producto)
 
 
         Producto.find({ nombre : {$regex : "^"+producto } }, function (err, products) {

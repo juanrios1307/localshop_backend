@@ -23,7 +23,6 @@ ControllerFilters.obtenerCategoria = (req, res) =>{
             if(err){
                 res.type('json').status(422).send({ status: "error", data: "No se puede procesar la entidad, datos incorrectos!" });
             } else{
-                console.log(categorias)
                 res.status(200).json({data:categorias})
             }
         })
