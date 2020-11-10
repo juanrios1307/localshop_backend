@@ -30,6 +30,8 @@ app.use('/api/rate',require('./routes/routerRate'))
 app.use('/api/saving',require('./routes/routerSavePublications'))
 app.use('/api/updatepwd',require('./routes/routerUpdatePwd'))
 
+app.use('/api/',require('./routes/routerPagar'))
+
 //start server
 app.listen(process.env.PORT || 5000,()=>{
     console.log('Listen in the port ',process.env.PORT)
