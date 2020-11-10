@@ -52,11 +52,35 @@ ControllerChat.crear = async (req,res)=> {
                                             });
                                         } else {
 
-                                            res.status(200).json({
-                                                status: "ok",
-                                                data: "Chat creado",
-                                                id: registro.id
-                                            });
+                                            Chat.findById(registro.id,function (err,chat){
+                                                if (err) {
+                                                    // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                                                    res.status(404).json({ status: "error", data: "No se ha encontrado el usuario con id: "+user});
+                                                } else {
+
+                                                    const mensaje ="Hola, Soy "+chat.user.nombre+", quiero recibir mas información de tu producto "+ productos.nombre
+
+                                                    var Mensaje={
+                                                        mensaje,
+                                                        emisor:"user"
+                                                    }
+
+                                                    Chat.findByIdAndUpdate(registro.id,{  $push : { Mensajes : Mensaje}}, function (err) {
+                                                        if (err) {
+                                                            // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                                                            res.status(404).json({ status: "error", data: "No se ha encontrado el usuario con id: "+user});
+                                                        } else {
+                                                            res.status(200).json({
+                                                                status: "ok",
+                                                                data: "Chat creado satisfactoriamente",
+                                                                id:registro.id
+                                                            });
+                                                        }
+
+                                                    })
+
+                                                }
+                                            }).populate('user')
                                         }
                                     });
 
