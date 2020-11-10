@@ -20,16 +20,16 @@ ControllerContact.crear= async (req,res)=>{
         } else {
             // También podemos devolver así la información:
             var transporter = nodemailer.createTransport({
-                service: 'gmail',
+                service: 'Outlook365',
                 auth: {
-                    user: 'localshop20202@gmail.com',
-                    pass: '2juan1santiago'
+                    user: 'localshop20202@outlook.com',
+                    pass: '2Juan1Santiago'
                 }
             });
 
 
             var mailOptions = {
-                from: 'localshop20202@gmail.com',
+                from: 'localshop20202@outlook.com',
                 to: seller.user.correo,
                 subject: asunto,
                 text: mensaje
@@ -37,7 +37,8 @@ ControllerContact.crear= async (req,res)=>{
 
             transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {
-                    res.status(404).json({status: "error", data: error});
+                    console.log("e: "+error)
+                    res.status(203).json({status: "error", data: error});
                 } else {
                     res.status(200).json({status: "ok", data: "Formulario enviado"});
                 }

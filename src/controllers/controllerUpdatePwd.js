@@ -16,15 +16,15 @@ ControllerUpdatePwd.send= (req,res)=> {
 
        }else{
            var transporter = nodemailer.createTransport({
-               service: 'gmail',
+               service: 'Outlook365',
                auth: {
-                   user: 'localshop20202@gmail.com',
-                   pass: '2juan1santiago'
+                   user: 'localshop20202@outlook.com',
+                   pass: '2Juan1Santiago'
                }
            });
 
            var mailOptions = {
-               from: 'localshop20202@gmail.com',
+               from: 'localshop20202@outlook.com',
                to: user.correo,
                subject: "Restablecer contraseña Localshop",
                html:"<p>Hola, en el siguiente link puedes restablecer tu contraseña</p>" +
