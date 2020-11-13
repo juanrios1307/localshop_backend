@@ -12,7 +12,10 @@ const User = mongoose.model('users',{
     cedula: {type: String , required:true, unique: true},
     ciudad:  {type:String, required:true},
     isSeller: {type: Boolean},
-    Save:  [{type: Schema.Types.ObjectId, ref: 'producto' }],
+    Save:  [{
+        producto: {type: Schema.Types.ObjectId, ref: 'users'},
+            cantidad: {type:Number, required:true}
+        }],
     Productos: [{type: Schema.Types.ObjectId, ref: 'producto' }],
     Chats:  [{type: Schema.Types.ObjectId, ref: 'chat' }]
 })
