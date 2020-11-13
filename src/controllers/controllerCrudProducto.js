@@ -58,7 +58,7 @@ ControllerProducto.obtener = (req,res)=>{
 ControllerProducto.crear = async (req,res)=>{
     const user=req.decoded.sub
 
-    var { images, descripcion, precio, categoria, nombre} =req.body //atributos
+    var { images, descripcion, precio,stock, categoria, nombre} =req.body //atributos
 
     descripcion=descripcion.toLowerCase()
     categoria=categoria.toLowerCase()
@@ -76,6 +76,7 @@ ControllerProducto.crear = async (req,res)=>{
                 images,
                 descripcion,
                 precio,
+                stock,
                 categoria,
                 nombre,
                 promedio:"0",
