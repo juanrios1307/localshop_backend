@@ -13,11 +13,13 @@ const User = mongoose.model('users',{
     ciudad:  {type:String, required:true},
     isSeller: {type: Boolean},
     Save:  [{
-        producto: {type: Schema.Types.ObjectId, ref: 'users'},
+        producto: {type: Schema.Types.ObjectId, ref: 'producto'},
             cantidad: {type:Number, required:true}
         }],
     Productos: [{type: Schema.Types.ObjectId, ref: 'producto' }],
-    Chats:  [{type: Schema.Types.ObjectId, ref: 'chat' }]
+    Chats:  [{type: Schema.Types.ObjectId, ref: 'chat' }],
+    Compras: [{type:Schema.Types.ObjectId, ref:'venta'}],
+    Ventas: [{type:Schema.Types.ObjectId, ref:'venta'}]
 })
 
 // Exportamos el modelo para usarlo en otros ficheros
