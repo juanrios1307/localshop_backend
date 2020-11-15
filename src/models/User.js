@@ -12,6 +12,9 @@ const User = mongoose.model('users',{
     cedula: {type: String , required:true, unique: true},
     ciudad:  {type:String, required:true},
     isSeller: {type: Boolean},
+    banco:{type:String },
+    cuentabanco: {type:String},
+    MetodosPago:[{type:String}],
     Save:  [{
         producto: {type: Schema.Types.ObjectId, ref: 'producto'},
             cantidad: {type:Number, required:true}

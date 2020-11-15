@@ -15,6 +15,7 @@ route.all('/', function(req, res, next) {
 route.get('/',protectedRoutes.verifyToken,controlUser.obtener)
 route.post('/',controlUser.crear)
 route.put('/',protectedRoutes.verifyToken,controlUser.actualizar)
+route.put('/seller',protectedRoutes.verifyToken,controlUser.registerSeller)
 route.delete('/',protectedRoutes.verifyToken,controlUser.eliminar)
 
 
