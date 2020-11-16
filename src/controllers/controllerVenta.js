@@ -8,20 +8,39 @@ const nodemailer = require("nodemailer");
 ControllerVenta.obtenerVentas  = (req,res)=>{
 
     const user=req.decoded.sub
+    if(req.params.id) {
+        const id=req.params.id
 
-    Venta.find({"vendedor":user}, function (err, ventas) {
-        if (err) {
-            // Si se ha producido un error, salimos de la función devolviendo  código http 422
-            return (res.type('json').status(422).send({
-                status: "error",
-                data: "No se puede procesar la entidad, datos incorrectos!"
-            }));
-        } else {
+        Venta.find({$and:{id,"vendedor":{user}}},function(err,venta){
+            if (err) {
+                // Si se ha producido un error, salimos de la función devolviendo  código http 422
+                return (res.type('json').status(203).send({
+                    status: "error",
+                    data: "No se puede procesar la entidad, datos incorrectos!"
+                }));
+            } else {
 
-            res.status(200).json({status: "ok", data: ventas});
+                res.status(200).json({status: "ok", data: venta});
 
-        }
-    }).populate('vendedor').populate('comprador').populate('producto')
+            }
+
+        }).populate('vendedor').populate('comprador').populate('producto')
+
+    }else{
+        Venta.find({"vendedor": user}, function (err, ventas) {
+            if (err) {
+                // Si se ha producido un error, salimos de la función devolviendo  código http 422
+                return (res.type('json').status(203).send({
+                    status: "error",
+                    data: "No se puede procesar la entidad, datos incorrectos!"
+                }));
+            } else {
+
+                res.status(200).json({status: "ok", data: ventas});
+
+            }
+        }).populate('vendedor').populate('comprador').populate('producto')
+    }
 
 }
 
@@ -29,19 +48,80 @@ ControllerVenta.obtenerCompras = (req,res)=>{
 
     const user=req.decoded.sub
 
-    Venta.find({"comprador":user}, function (err, ventas) {
-        if (err) {
-            // Si se ha producido un error, salimos de la función devolviendo  código http 422
-            return (res.type('json').status(422).send({
+    if(req.params.id) {
+        const id=req.params.id
+
+        Venta.find({$and:{id,"comprador":{user}}},function(err,venta){
+            if (err) {
+                // Si se ha producido un error, salimos de la función devolviendo  código http 422
+                return (res.type('json').status(203).send({
+                    status: "error",
+                    data: "No se puede procesar la entidad, datos incorrectos!"
+                }));
+            } else {
+
+                res.status(200).json({status: "ok", data: venta});
+
+            }
+
+        }).populate('vendedor').populate('comprador').populate('producto')
+
+    }else {
+
+        Venta.find({"comprador": user}, function (err, ventas) {
+            if (err) {
+                // Si se ha producido un error, salimos de la función devolviendo  código http 422
+                return (res.type('json').status(422).send({
+                    status: "error",
+                    data: "No se puede procesar la entidad, datos incorrectos!"
+                }));
+            } else {
+
+                res.status(200).json({status: "ok", data: ventas});
+
+            }
+        }).populate('vendedor').populate('comprador').populate('producto')
+    }
+}
+
+ControllerVenta.obtenerInfoVenta = (req,res)=>{
+
+    const user=req.decoded.sub;
+    const producto=req.headers['producto'];
+    const cantidad=req.headers['cantidad'];;
+
+    Producto.findById(producto, function (err,product){
+        if(err){
+            return (res.type('json').status(203).send({
                 status: "error",
                 data: "No se puede procesar la entidad, datos incorrectos!"
             }));
         } else {
 
-            res.status(200).json({status: "ok", data: ventas});
+            const producto=product.nombre;
+            const precio=product.precio;
+            const vendedor=product.user.nombre;
+            const telefono=product.user.telefono;
+
+
+            const total=precio*cantidad;
+            const comision=total*0.05;
+
+            const object={
+                producto,
+                precio,
+                vendedor,
+                telefono,
+                cantidad,
+                total,
+                comision
+            }
+
+            res.status(200).json({status: "ok", data: object});
 
         }
-    }).populate('vendedor').populate('comprador').populate('producto')
+
+    }).populate('user')
 
 }
 
@@ -51,12 +131,10 @@ ControllerVenta.crearVenta = async (req, res) => {
     const {producto, cantidad, metodoPago} = req.body
 
 
-
-
     Producto.findById(producto, async function (err, product) {
         if (err) {
             // Si se ha producido un error, salimos de la función devolviendo  código http 422
-            return (res.type('json').status(422).send({
+            return (res.type('json').status(203).send({
                 status: "error",
                 data: "No se puede procesar la entidad, datos incorrectos!"
             }));

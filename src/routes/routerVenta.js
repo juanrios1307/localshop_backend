@@ -12,8 +12,9 @@ route.all('/', function(req, res, next) {
     next()
 });
 
-route.get('/compras',protectedRoutes.verifyToken,controlVenta.obtenerCompras)
-route.get('/ventas',protectedRoutes.verifyToken,controlVenta.obtenerVentas)
+route.get('/compras/:id?',protectedRoutes.verifyToken,controlVenta.obtenerCompras)
+route.get('/ventas/:id?',protectedRoutes.verifyToken,controlVenta.obtenerVentas)
+route.get('/',protectedRoutes.verifyToken,controlVenta.obtenerInfoVenta)
 route.post('/',protectedRoutes.verifyToken,controlVenta.crearVenta)
 
 
