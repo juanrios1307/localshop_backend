@@ -27,6 +27,8 @@ ControllerUser.crear= async (req,res)=>{
         pwd= bcrypt.hashSync(pwd, 10);
     }
 
+    cedula=cedula.toLowerCase()
+
     const registro=new User({
         isSeller:false,
         correo,
