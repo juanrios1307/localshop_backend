@@ -94,8 +94,10 @@ ControllerProducto.crear = async (req,res)=>{
 ControllerProducto.actualizar=(req, res)=>{
 
     const user=req.decoded.sub
+    const producto=req.params.id
 
-    Producto.findById(req.params.id, function (err, products) {
+
+    Producto.findById(producto, function (err, products) {
         if (err) {
             // Devolvemos el código HTTP 404, de producto no encontrado por su id.
             res.status(404).json({ status: "error", data: "No se ha encontrado el anuncio con id: "+req.params.id});
@@ -103,7 +105,7 @@ ControllerProducto.actualizar=(req, res)=>{
             // También podemos devolver así la información:
             if(products.user == user) {
 
-                Producto.findByIdAndUpdate(req.params.id, { $set: req.body }, function (err) {
+                Producto.findByIdAndUpdate(producto, { $set: req.body }, function (err) {
                     if (err) {
                         //res.send(err);
                         // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
@@ -125,8 +127,9 @@ ControllerProducto.actualizar=(req, res)=>{
 ControllerProducto.eliminar=(req, res)=>{
 
     const user=req.decoded.sub
+    const producto=req.params.id
 
-    Producto.findById(req.params.id, function (err, products) {
+    Producto.findById(producto, function (err, products) {
         if (err) {
             // Devolvemos el código HTTP 404, de producto no encontrado por su id.
             res.status(404).json({ status: "error", data: "No se ha encontrado el anuncio con id: "+req.params.id});
@@ -134,7 +137,7 @@ ControllerProducto.eliminar=(req, res)=>{
             // También podemos devolver así la información:
             if(products.user == user) {
 
-                Producto.findByIdAndRemove(req.params.id, function(err, data) {
+                Producto.findByIdAndRemove(producto, function(err, data) {
                     if (err || !data) {
                         //res.send(err);
                         // Devolvemos el código HTTP 404, de producto no encontrado por su id.
@@ -142,13 +145,21 @@ ControllerProducto.eliminar=(req, res)=>{
                     }
                     else
                     {
-                        User.findByIdAndUpdate(user,  {  $pull : { Productos : req.params.id }}, function (err) {
+                        User.findByIdAndUpdate(user,  {  $pull : { Productos : producto }}, function (err) {
                             if (err) {
                                 // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
-                                res.status(404).json({ status: "error", data: "No se ha encontrado el usuario con id: "+user});
+                                res.status(203).json({ status: "error", data: "No se ha encontrado el usuario con id: "+user});
                             } else {
-                                // Devolvemos el código HTTP 200.
-                                res.status(200).json({ status: "ok", data: "Producto eliminado satisfactoriamente" });
+
+                                User.update({"Save.producto":producto},{$pull : {"Save":{ "producto":producto}}},{multi:true},function(err){
+                                    if(err){
+                                        res.status(203).json({ status: "error", data: "No se ha encontrado el usuario con id: "+user});
+                                    } else {
+                                        // Devolvemos el código HTTP 200.
+                                        res.status(200).json({ status: "ok", data: "Producto eliminado satisfactoriamente" });
+
+                                    }
+                                })
 
                             }
                         });
