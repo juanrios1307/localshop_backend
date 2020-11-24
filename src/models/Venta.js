@@ -1,17 +1,20 @@
-ControllerUser.registerSeller=(req,res)=>{
-    const user = req.decoded.sub
+// Cargamos el módulo de mongoose
+const mongoose =  require('mongoose');
+var Schema=mongoose.Schema;
+// Usaremos los esquemas
 
-    const {banco,cuentabanco,MetodosPago}=req.body
+// Creamos el objeto del esquema y sus atributos
+const Venta = mongoose.model('venta',{
+    comprador: { type: Schema.ObjectId, ref: 'users' },
+    vendedor: { type: Schema.ObjectId, ref: 'users' },
+    producto:{type:Schema.ObjectId , ref:'producto'},
+    cantidad: {type:Number,required:true},
+    precio: {type:Number,required:true},
+    total: {type:Number, required:true},
+    comision: {type:Number , required:true},
+    metodoPago : {type:String, required:true},
+    date:{type: Date, default: Date.now}
+})
 
-    User.updateMany({_id:user},{ $set: req.body, isSeller: true }, function (err) {
-        if (err) {
-            //res.send(err);
-            // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
-            res.status(203).json({ status: "error", data: "No se ha encontrado el usuario con id: "+user});
-        } else {
-            // Devolvemos el código HTTP 200.
-            res.status(200).json({ status: "ok", data: "Usuario registrado como vendedor" });
-        }
-    });
-
-}
+// Exportamos el modelo para usarlo en otros ficheros
+module.exports = Venta

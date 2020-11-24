@@ -21,7 +21,7 @@ app.use(cors({origin:true}))
 //Declaracion de rutas para manejo de api
 app.use('/api/chat',require('./routes/routerChat'))
 app.use('/api/contact',require('./routes/routerContact'))
-app.use('/api/producto',require('../../../untitled/routerCrudProducto'))
+app.use('/api/producto',require('./routes/routerCrudProducto'))
 app.use('/api/users',require('./routes/routerCrudUser'))
 app.use('/api/filters',require('./routes/routerFilters'))
 app.use('/api/login',require('./routes/routerLogin'))
@@ -29,12 +29,10 @@ app.use('/api/main',require('./routes/routerMain'))
 app.use('/api/rate',require('./routes/routerRate'))
 app.use('/api/saving',require('./routes/routerSavePublications'))
 app.use('/api/updatepwd',require('./routes/routerUpdatePwd'))
-app.use('/api/venta',require('../../../untitled/routerVenta'))
+app.use('/api/venta',require('./routes/routerVenta'))
 
-app.use('/api/',require('./routes/routerPagar'))
 
 //start server
 app.listen(process.env.PORT || 5000,()=>{
     console.log('Listen in the port ',process.env.PORT)
 })
-

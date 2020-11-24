@@ -1,6 +1,6 @@
 const  {Router} =require('express')
 const route=Router()
-const  controllerProducto=require('./controllerCrudProducto')
+const  controllerProducto=require('../controllers/controllerCrudProducto')
 const protectedRoutes=require('../helpers/protectedRoutes')
 
 route.all('/', function(req, res, next) {
