@@ -104,6 +104,7 @@ ControllerVenta.obtenerInfoVenta = (req,res)=>{
 
             for(var i=0;i<pubs.length;i++){
 
+
                 await Producto.findById(pubs[i].producto,function (err,product){
                     if (err)
                         // Si se ha producido un error, salimos de la función devolviendo  código http 422 (Unprocessable Entity).
@@ -216,6 +217,16 @@ ControllerVenta.crearVenta = async (req, res) => {
             const total = precio * cantidad;
             const comision = total * 0.05;
 
+            var estado;
+
+            if(metodoPago=="tarjeta"){
+                estado="aprobado"
+            }else if(metodoPago=="contraentrega"){
+                estado="pendienterecibo"
+            }else if(metodoPago=="giro"){
+                estado="pendientepago"
+            }
+
             const registro = new Venta({
                 comprador,
                 vendedor,
@@ -224,7 +235,8 @@ ControllerVenta.crearVenta = async (req, res) => {
                 precio,
                 total,
                 comision,
-                metodoPago
+                metodoPago,
+                estado
 
             })
 
@@ -290,6 +302,102 @@ ControllerVenta.crearVenta = async (req, res) => {
 
 
 
+
+}
+
+ControllerVenta.cambiarEstado = async (req,res) =>{
+
+    const id=req.headers['id']
+
+    Venta.findByIdAndUpdate(id,{$set : {"estado": "aprobado" }},function(err){
+            if (err) {
+                //res.send(err);
+                // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                res.status(203).json({ status: "error", data: "No se ha encontrado la venta"});
+            } else {
+                // Devolvemos el código HTTP 200.
+                res.status(200).json({ status: "ok", data: "Estado actualizado" });
+            }
+    });
+
+}
+
+ControllerVenta.obtenerMetodosPago = async (req,res) =>{
+
+    const user=req.decoded.sub
+
+
+    const bool=req.headers['bool'];
+
+    if(bool=="true") {
+
+        User.findById(user, {"Save":1 ,"_id":0},async function  (err, saves) {
+            if (err)
+                // Si se ha producido un error, salimos de la función devolviendo  código http 422 (Unprocessable Entity).
+                return (res.type('json').status(422).send({
+                    status: "error",
+                    data: "No se puede procesar la entidad, datos incorrectos!"
+                }));
+
+
+            var object = []
+
+            const pubs = saves.Save
+            console.log(pubs.length)
+            for (var i = 0; i < pubs.length; i++) {
+
+                await Producto.findById(pubs[i].producto, function (err, product) {
+                    if (err)
+                        // Si se ha producido un error, salimos de la función devolviendo  código http 422 (Unprocessable Entity).
+                        return (res.type('json').status(422).send({
+                            status: "error",
+                            data: "No se puede procesar la entidad, datos incorrectos!"
+                        }));
+                    else {
+
+                        object.push(product.user.MetodosPago)
+
+                    }
+                    // También podemos devolver así la información:
+
+                }).populate('user')
+
+            }
+
+            console.log(object)
+            for (var i=1;i<object.length;i++){
+                object[i]=object[i].filter(x => object[i-1].includes(x))
+
+            }
+
+            while(object.length>1){
+                object.shift()
+            }
+
+            console.log(object)
+
+            res.status(200).json({status: "ok", data: object});
+        })
+
+    }else{
+        const producto = req.headers['producto'];
+        const cantidad = req.headers['cantidad'];
+
+
+        Producto.findById(producto, function (err, product) {
+            if (err) {
+                return (res.type('json').status(203).send({
+                    status: "error",
+                    data: "No se puede procesar la entidad, datos incorrectos!"
+                }));
+            } else {
+
+                res.status(200).json({status: "ok", data: product.user.MetodosPago});
+
+            }
+
+        }).populate('user')
+    }
 
 }
 

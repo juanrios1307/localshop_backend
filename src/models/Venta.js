@@ -13,6 +13,7 @@ const Venta = mongoose.model('venta',{
     total: {type:Number, required:true},
     comision: {type:Number , required:true},
     metodoPago : {type:String, required:true},
+    estado : {type:String , requires:true},
     date:{type: Date, default: Date.now}
 })
 
