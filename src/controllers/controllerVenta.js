@@ -87,42 +87,102 @@ ControllerVenta.obtenerCompras = (req,res)=>{
 ControllerVenta.obtenerInfoVenta = (req,res)=>{
 
     const user=req.decoded.sub;
-    const producto=req.headers['producto'];
-    const cantidad=req.headers['cantidad'];;
+    const bool=req.headers['bool'];
 
-    Producto.findById(producto, function (err,product){
-        if(err){
-            return (res.type('json').status(203).send({
-                status: "error",
-                data: "No se puede procesar la entidad, datos incorrectos!"
-            }));
-        } else {
-
-            const producto=product.nombre;
-            const precio=product.precio;
-            const vendedor=product.user.nombre;
-            const telefono=product.user.telefono;
+    if(bool=="true"){
+        User.findById(user, {"Save":1 ,"_id":0},async function  (err, saves) {
+            if (err)
+                // Si se ha producido un error, salimos de la función devolviendo  código http 422 (Unprocessable Entity).
+                return (res.type('json').status(422).send({ status: "error", data: "No se puede procesar la entidad, datos incorrectos!" }));
 
 
-            const total=precio*cantidad;
-            const comision=total*0.05;
+            var object=[]
+            var Total=0;
 
-            const object={
-                producto,
-                precio,
-                vendedor,
-                telefono,
-                cantidad,
-                total,
-                comision
+            const pubs=saves.Save
+
+
+            for(var i=0;i<pubs.length;i++){
+
+                await Producto.findById(pubs[i].producto,function (err,product){
+                    if (err)
+                        // Si se ha producido un error, salimos de la función devolviendo  código http 422 (Unprocessable Entity).
+                        return (res.type('json').status(422).send({ status: "error", data: "No se puede procesar la entidad, datos incorrectos!" }));
+                    else{
+
+                        const producto = product.nombre;
+                        const precio = product.precio;
+                        const vendedor = product.user.nombre;
+                        const telefono = product.user.telefono;
+                        const cantidad=pubs[i].cantidad;
+
+                        const total = precio * cantidad;
+                        const comision = total * 0.05;
+
+                        const object1 = {
+                            producto,
+                            precio,
+                            vendedor,
+                            telefono,
+                            cantidad,
+                            total,
+                            comision
+                        }
+
+                        Total+=total;
+                        object.push(object1)
+
+                    }
+                    // También podemos devolver así la información:
+
+                }).populate('user')
+
             }
 
-            res.status(200).json({status: "ok", data: object});
+            res.status(200).json({ status: "ok", data: object,total:Total});
 
-        }
+        })
 
-    }).populate('user')
+    }else {
 
+        const producto = req.headers['producto'];
+        const cantidad = req.headers['cantidad'];
+
+
+        Producto.findById(producto, function (err, product) {
+            if (err) {
+                return (res.type('json').status(203).send({
+                    status: "error",
+                    data: "No se puede procesar la entidad, datos incorrectos!"
+                }));
+            } else {
+
+                const producto = product.nombre;
+                const precio = product.precio;
+                const vendedor = product.user.nombre;
+                const telefono = product.user.telefono;
+
+                const total = precio * cantidad;
+                const comision = total * 0.05;
+
+                console.log("Total: "+total+" COmision: "+comision)
+
+                const object = {
+                    producto,
+                    precio,
+                    vendedor,
+                    telefono,
+                    cantidad,
+                    total,
+                    comision
+                }
+
+                res.status(200).json({status: "ok", data: object});
+
+            }
+
+        }).populate('user')
+    }
 }
 
 ControllerVenta.crearVenta = async (req, res) => {
