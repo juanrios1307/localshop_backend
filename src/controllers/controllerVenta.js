@@ -169,8 +169,6 @@ ControllerVenta.obtenerInfoVenta = (req,res)=>{
                 const total = precio * cantidad;
                 const comision = total * 0.05;
 
-                console.log("Total: "+total+" COmision: "+comision)
-
                 const object = {
                     producto,
                     precio,
@@ -288,7 +286,6 @@ ControllerVenta.crearVenta = async (req, res) => {
                                                         data: "Error buscando venta"
                                                     });
                                                 }else{
-                                                    console.log(venta)
                                                     await Venta.findByIdAndUpdate(registro.id, {$set: {"total": (venta.total +total)}}, async function (err) {
                                                         if (err) {
                                                             res.type('json').status(404).send({
@@ -331,7 +328,6 @@ ControllerVenta.crearVenta = async (req, res) => {
                                                                                     };
                                                                                     await  transporter.sendMail(mailOptions, function (error, info) {
                                                                                         if (error) {
-                                                                                            console.log("e: " + error)
                                                                                             res.status(404).json({status: "error", data: error});
                                                                                             return
                                                                                         } else {
