@@ -28,6 +28,7 @@ app.use('/api/login',require('./routes/routerLogin'))
 app.use('/api/main',require('./routes/routerMain'))
 app.use('/api/rate',require('./routes/routerRate'))
 app.use('/api/saving',require('./routes/routerSavePublications'))
+app.use('/api/verificartarjeta',require('./routes/routerTarjeta'))
 app.use('/api/updatepwd',require('./routes/routerUpdatePwd'))
 app.use('/api/venta',require('./routes/routerVenta'))
 

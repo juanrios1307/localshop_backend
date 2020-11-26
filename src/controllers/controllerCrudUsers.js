@@ -28,6 +28,7 @@ ControllerUser.crear= async (req,res)=>{
     }
 
     cedula=cedula.toLowerCase()
+    ciudad=ciudad.toLowerCase()
 
     const registro=new User({
         isSeller:false,
