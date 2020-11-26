@@ -12,7 +12,7 @@ ControllerVenta.obtenerVentas  = (req,res)=>{
     if(req.params.id) {
         const id=req.params.id
 
-        Venta.find({$and:[{"_id":id,"vendedor":user}]},function(err,venta){
+        Venta.find({$and:[{"_id":id,"productos.vendedor":user}]},function(err,venta){
             if (err) {
                 // Si se ha producido un error, salimos de la función devolviendo  código http 422
                 return (res.type('json').status(203).send({
@@ -25,11 +25,11 @@ ControllerVenta.obtenerVentas  = (req,res)=>{
 
             }
 
-        }).populate('vendedor').populate('comprador').populate('producto')
+        }).populate('productos.vendedor').populate('comprador').populate('productos.producto')
 
     }else{
 
-        Venta.find({"vendedor": user}, function (err, ventas) {
+        Venta.find({"productos.vendedor": user}, function (err, ventas) {
             if (err) {
                 // Si se ha producido un error, salimos de la función devolviendo  código http 422
                 return (res.type('json').status(203).send({
@@ -38,10 +38,12 @@ ControllerVenta.obtenerVentas  = (req,res)=>{
                 }));
             } else {
 
+
+
                 res.status(200).json({status: "ok", data: ventas});
 
             }
-        }).populate('vendedor').populate('comprador').populate('producto')
+        }).populate('productos.vendedor').populate('comprador').populate('productos.producto')
     }
 
 }
@@ -67,7 +69,7 @@ ControllerVenta.obtenerCompras = (req,res)=>{
 
             }
 
-        }).populate('vendedor').populate('comprador').populate('producto')
+        }).populate('productos.vendedor').populate('comprador').populate('productos.producto')
 
     }else {
 
@@ -83,7 +85,7 @@ ControllerVenta.obtenerCompras = (req,res)=>{
                 res.status(200).json({status: "ok", data: ventas});
 
             }
-        }).populate('vendedor').populate('comprador').populate('producto')
+        }).populate('productos.vendedor').populate('comprador').populate('productos.producto')
     }
 }
 
@@ -107,6 +109,7 @@ ControllerVenta.obtenerInfoVenta = (req,res)=>{
 
             for(var i=0;i<pubs.length;i++){
 
+                const cantidad=pubs[i].cantidad;
 
                 await Producto.findById(pubs[i].producto,function (err,product){
                     if (err)
@@ -118,7 +121,7 @@ ControllerVenta.obtenerInfoVenta = (req,res)=>{
                         const precio = product.precio;
                         const vendedor = product.user.nombre;
                         const telefono = product.user.telefono;
-                        const cantidad=pubs[i].cantidad;
+
 
                         const total = precio * cantidad;
                         const comision = total * 0.05;
@@ -568,7 +571,6 @@ ControllerVenta.obtenerMetodosPago = async (req,res) =>{
                             data: "No se puede procesar la entidad, datos incorrectos!"
                         }));
                     else {
-
                         object.push(product.user.MetodosPago)
 
                     }
@@ -578,7 +580,6 @@ ControllerVenta.obtenerMetodosPago = async (req,res) =>{
 
             }
 
-            console.log(object)
             for (var i=1;i<object.length;i++){
                 object[i]=object[i].filter(x => object[i-1].includes(x))
 
@@ -587,8 +588,6 @@ ControllerVenta.obtenerMetodosPago = async (req,res) =>{
             while(object.length>1){
                 object.shift()
             }
-
-            console.log(object)
 
             res.status(200).json({status: "ok", data: object});
         })
