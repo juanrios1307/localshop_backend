@@ -198,6 +198,7 @@ ControllerVenta.crearVenta = async (req, res) => {
 
 
     if(bool=="true") {
+
         var estado
 
         if (metodoPago == "tarjeta") {
@@ -237,7 +238,7 @@ ControllerVenta.crearVenta = async (req, res) => {
                 User.findById(comprador, {"Save": 1, "_id": 0}, async function (err, saves) {
                     if (err) {
                         // Si se ha producido un error, salimos de la función devolviendo  código http 422 (Unprocessable Entity).
-                        return (res.type('json').status(422).send({
+                        return (res.type('json').status(203).send({
                             status: "error",
                             data: "Error buscando comprador"
                         }));
@@ -246,14 +247,14 @@ ControllerVenta.crearVenta = async (req, res) => {
 
                         for (var i = 0; i < pubs.length; i++) {
 
-                            await delay(500);
+                            await delay(1000);
 
                             var cantidad = (pubs[i].cantidad)
 
                             await Producto.findById(pubs[i].producto, async function (err, product) {
                                 if (err) {
                                     // Si se ha producido un error, salimos de la función devolviendo  código http 422
-                                    (res.type('json').status(404).send({
+                                    (res.type('json').status(203).send({
                                         status: "error",
                                         data: "Error buscando producto"
                                     }));
@@ -275,7 +276,7 @@ ControllerVenta.crearVenta = async (req, res) => {
 
                                     Venta.findByIdAndUpdate(registro.id, {$push: {productos: PRODUCTO}}, async function (err) {
                                         if (err) {
-                                            res.type('json').status(404).send({
+                                            res.type('json').status(203).send({
                                                 status: "error",
                                                 data: "Error actualizando venta"
                                             });
@@ -284,21 +285,21 @@ ControllerVenta.crearVenta = async (req, res) => {
 
                                             await  Venta.findById(registro.id, async function (err, venta){
                                                 if(err){
-                                                    res.type('json').status(404).send({
+                                                    res.type('json').status(203).send({
                                                         status: "error",
                                                         data: "Error buscando venta"
                                                     });
                                                 }else{
                                                     await Venta.findByIdAndUpdate(registro.id, {$set: {"total": (venta.total +total)}}, async function (err) {
                                                         if (err) {
-                                                            res.type('json').status(404).send({
+                                                            res.type('json').status(203).send({
                                                                 status: "error",
                                                                 data: "Error actualizando venta"
                                                             });
                                                         } else {
                                                             await Venta.findByIdAndUpdate(registro.id, {$set: {"comision": (venta.comision + comision)}}, function (err) {
                                                                 if (err) {
-                                                                    res.type('json').status(404).send({
+                                                                    res.type('json').status(203).send({
                                                                         status: "error",
                                                                         data: "Error actualizando venta"
                                                                     });
@@ -308,7 +309,7 @@ ControllerVenta.crearVenta = async (req, res) => {
                                                                         if (err) {
                                                                             //res.send(err);
                                                                             // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
-                                                                            res.type('json').status(404).send({
+                                                                            res.type('json').status(203).send({
                                                                                 status: "error",
                                                                                 data: "Error actualizando stock"
                                                                             });
@@ -322,18 +323,20 @@ ControllerVenta.crearVenta = async (req, res) => {
                                                                                     });
                                                                                 } else {
 
-                                                                                    delay(500) //DELAY
+                                                                                    await delay(500) //DELAY
+
                                                                                     var mailOptions = {
                                                                                         from: 'localshop20202@outlook.com',
                                                                                         to: product.user.correo,
                                                                                         subject: "Nueva venta",
                                                                                         text: "Hola, " + product.user.nombre + " acabas de vender " + cantidad + " unidades de tu producto " + product.nombre
                                                                                     };
+
                                                                                     await  transporter.sendMail(mailOptions, function (error, info) {
                                                                                         if (error) {
-                                                                                            res.status(404).json({status: "error", data: error});
-                                                                                            return
+
                                                                                         } else {
+
                                                                                         }
                                                                                     });
                                                                                 }
@@ -362,9 +365,9 @@ ControllerVenta.crearVenta = async (req, res) => {
                 User.findByIdAndUpdate(comprador, {$unset:{Save:""}},{multi:true}, function (err) {
                 if (err) {
                     // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
-                    return res.status(404).json({status: "error", data: "No se ha encontrado el usuario con id: " + comprador});
+                    return res.status(203).json({status: "error", data: "No se ha encontrado el usuario con id: " + comprador});
                 } else {
-                    return res.status(200).json({status:"ok",data:"Venta Realizada"})
+                    return res.status(200).json({status:"ok",data:"Venta Realizada",id:registro.id})
                 }
                 });
 
@@ -418,7 +421,7 @@ ControllerVenta.crearVenta = async (req, res) => {
                 await Producto.findById(producto, async function (err, product) {
                     if (err) {
                         // Si se ha producido un error, salimos de la función devolviendo  código http 422
-                        (res.type('json').status(404).send({
+                        (res.type('json').status(203).send({
                             status: "error",
                             data: "Error buscando producto"
                         }));
@@ -438,7 +441,7 @@ ControllerVenta.crearVenta = async (req, res) => {
 
                         Venta.findByIdAndUpdate(registro.id, {$push: {productos: PRODUCTO}}, async function (err) {
                             if (err) {
-                                res.type('json').status(404).send({
+                                res.type('json').status(203).send({
                                     status: "error",
                                     data: "Error actualizando venta p"+err
                                 });
@@ -446,14 +449,14 @@ ControllerVenta.crearVenta = async (req, res) => {
 
                                 await Venta.findByIdAndUpdate(registro.id, {$set: {"total": (total)}}, async function (err) {
                                     if (err) {
-                                        res.type('json').status(404).send({
+                                        res.type('json').status(203).send({
                                             status: "error",
                                             data: "Error actualizando venta t"
                                         });
                                     } else {
                                         await Venta.findByIdAndUpdate(registro.id, {$set: {"comision": (comision)}}, function (err) {
                                             if (err) {
-                                                res.type('json').status(404).send({
+                                                res.type('json').status(203).send({
                                                     status: "error",
                                                     data: "Error actualizando venta c"
                                                 });
@@ -462,7 +465,7 @@ ControllerVenta.crearVenta = async (req, res) => {
                                                     if (err) {
                                                         //res.send(err);
                                                         // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
-                                                        res.type('json').status(404).send({
+                                                        res.type('json').status(203).send({
                                                             status: "error",
                                                             data: "Error actualizando stock"
                                                         });
@@ -485,7 +488,7 @@ ControllerVenta.crearVenta = async (req, res) => {
                                                                 await  transporter.sendMail(mailOptions, function (error, info) {
                                                                     if (error) {
                                                                         console.log("e: " + error)
-                                                                        res.status(404).json({status: "error", data: error});
+                                                                        res.status(203).json({status: "error", data: error});
                                                                         return
                                                                     } else {
                                                                     }
@@ -508,9 +511,9 @@ ControllerVenta.crearVenta = async (req, res) => {
                 User.update({_id:comprador},  {  $pull : { "Save" : { "producto":producto} }}, function (err) {
                     if (err) {
                         // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
-                        return res.status(404).json({status: "error", data: "No se ha encontrado el usuario con id: " + comprador});
+                        return res.status(203).json({status: "error", data: "No se ha encontrado el usuario con id: " + comprador});
                     } else {
-                        return res.status(200).json({status:"ok",data:"Venta Realizada"})
+                        return res.status(200).json({status:"ok",data:"Venta Realizada",id:registro.id})
                     }
                 });
 
@@ -648,6 +651,109 @@ ControllerVenta.obtenerMetodosPago = async (req,res) =>{
         }).populate('user')
     }
 
+}
+
+ControllerVenta.obtenerInfoGiro = async (req,res) =>{
+    const comprador = req.decoded.sub
+
+    const producto=req.headers['producto']
+    const bool=req.headers['bool']
+
+
+    if(bool=="true") {
+        User.findById(comprador, async function (err, user) {
+            if (err) {
+                // Si se ha producido un error, salimos de la función devolviendo  código http 422 (Unprocessable Entity).
+                return (res.type('json').status(203).send({
+                    status: "error",
+                    data: "Error buscando comprador"
+                }));
+            } else {
+                //si se envia la peticion con parametros
+                Producto.findById(user.Save[0].producto, function (err, producto) {
+                    if (err) {
+                        // Devolvemos el código HTTP 404, de producto no encontrado por su id.
+                        res.status(404).json({ status: "error", data: "No se ha encontrado el producto con id: "+id});
+                    } else {
+                        // También podemos devolver así la información:
+                        var transporter = nodemailer.createTransport({
+                            service: 'Outlook365',
+                            auth: {
+                                user: 'localshop20202@outlook.com',
+                                pass: '2Juan1Santiago'
+                            }
+                        });
+
+
+                        var mailOptions = {
+                            from: 'localshop20202@outlook.com',
+                            to: user.correo,
+                            subject: "Informacion giro",
+                            text: "Nombre: "+producto.user.nombre+"\nCédula: "+producto.user.cedula+
+                                "\nTeléfono: "+producto.user.telefono+"\nCorreo: "+producto.user.correo
+                        };
+                        transporter.sendMail(mailOptions, function (error, info) {
+                            if (error) {
+                                console.log("e: "+error)
+                                res.status(203).json({status: "error", data: error});
+                            } else {
+                                res.status(200).json({ status: "ok", data: producto });
+                            }
+                        });
+
+                    }
+                }).populate('user')
+            }
+        })
+
+    }else {
+
+        User.findById(comprador, async function (err, user) {
+            if (err) {
+                // Si se ha producido un error, salimos de la función devolviendo  código http 422 (Unprocessable Entity).
+                return (res.type('json').status(203).send({
+                    status: "error",
+                    data: "Error buscando comprador"
+                }));
+            } else {
+                //si se envia la peticion con parametros
+                Producto.findById(producto, function (err, producto) {
+                    if (err) {
+                        // Devolvemos el código HTTP 404, de producto no encontrado por su id.
+                        res.status(404).json({ status: "error", data: "No se ha encontrado el producto con id: "+id});
+                    } else {
+                        // También podemos devolver así la información:
+                        var transporter = nodemailer.createTransport({
+                            service: 'Outlook365',
+                            auth: {
+                                user: 'localshop20202@outlook.com',
+                                pass: '2Juan1Santiago'
+                            }
+                        });
+
+
+                        var mailOptions = {
+                            from: 'localshop20202@outlook.com',
+                            to: user.correo,
+                            subject: "Informacion giro",
+                            text: "Nombre: "+producto.user.nombre+"\nCédula: "+producto.user.cedula+
+                                "\nTeléfono: "+producto.user.telefono+"\nCorreo: "+producto.user.correo
+                        };
+                        transporter.sendMail(mailOptions, function (error, info) {
+                            if (error) {
+                                console.log("e: "+error)
+                                res.status(203).json({status: "error", data: error});
+                            } else {
+                                res.status(200).json({ status: "ok", data: producto });
+                            }
+                        });
+
+                    }
+                }).populate('user')
+            }
+        })
+
+    }
 }
 
 module.exports=ControllerVenta

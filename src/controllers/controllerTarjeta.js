@@ -8,7 +8,6 @@ ControllerTarjeta.verificarTarjeta = (req,res) =>{
     const cvc=parseInt(req.headers['cvc'])
     const mes=parseInt(req.headers['mes'])
     const year=parseInt(req.headers['year'])
-    const tipo=req.headers['tipo']
     const titular=req.headers['titular'].toLowerCase()
 
     Tarjeta.find({"numero":numero},function(err,tarjeta){
@@ -20,7 +19,6 @@ ControllerTarjeta.verificarTarjeta = (req,res) =>{
             if(tarjeta[0].cvc === cvc &&
             tarjeta[0].mes === mes &&
             tarjeta[0].year === year &&
-            tarjeta[0].tipo === tipo &&
             tarjeta[0].titular === titular ){
                 // También podemos devolver así la información:
                 res.status(200).json({ status: "ok", data: "Tarjeta aceptada por el sistema, " +
@@ -37,6 +35,8 @@ ControllerTarjeta.verificarTarjeta = (req,res) =>{
 
 ControllerTarjeta.crear= async (req,res)=>{
     var {numero,cvc,mes,year,tipo,titular} =req.body //atributos
+
+    titular=titular.toLowerCase()
 
     const registro=new Tarjeta({
         numero,
