@@ -558,38 +558,74 @@ ControllerVenta.obtenerMetodosPago = async (req,res) =>{
 
 
             var object = []
+            var user=[]
 
             const pubs = saves.Save
-            console.log(pubs.length)
-            for (var i = 0; i < pubs.length; i++) {
 
-                await Producto.findById(pubs[i].producto, function (err, product) {
+
+            await Producto.findById(pubs[0].producto,async function (err,product){
+                if (err)
+                    // Si se ha producido un error, salimos de la función devolviendo  código http 422 (Unprocessable Entity).
+                    return (res.type('json').status(422).send({
+                        status: "error",
+                        data: "No se puede procesar la entidad, datos incorrectos!"
+                    }));
+                else {
+                   await user.push(product.user)
+                }
+            })
+
+
+            var sameUser=true
+
+
+            var i=1
+
+            while(i<pubs.length){
+
+                await Producto.findById(pubs[i].producto,async function (err,product){
                     if (err)
+                        // Si se ha producido un error, salimos de la función devolviendo  código http 422 (Unprocessable Entity).
+                        return (res.type('json').status(203).send({
+                            status: "error",
+                            data: "No se puede procesar la entidad, datos incorrectos!"
+                        }));
+                    else {
+
+                      if(product.user.toString()==user[0].toString()){
+                          sameUser = true
+                           i++
+                       }else{
+                           sameUser = false
+                           i=pubs.length
+                       }
+
+                    }
+                })
+            }
+
+            console.log("sameUser: "+sameUser.toString())
+
+            if(sameUser == true) {
+                await Producto.findById(pubs[0].producto, function (err, product) {
+                    if (err) {
                         // Si se ha producido un error, salimos de la función devolviendo  código http 422 (Unprocessable Entity).
                         return (res.type('json').status(422).send({
                             status: "error",
                             data: "No se puede procesar la entidad, datos incorrectos!"
                         }));
+                    }
                     else {
-                        object.push(product.user.MetodosPago)
-
+                        return res.status(200).json({status: "ok", data: product.user.MetodosPago});
                     }
                     // También podemos devolver así la información:
 
                 }).populate('user')
 
+            }else{
+                return res.status(200).json({status: "ok", data: ["tarjeta"]});
             }
 
-            for (var i=1;i<object.length;i++){
-                object[i]=object[i].filter(x => object[i-1].includes(x))
-
-            }
-
-            while(object.length>1){
-                object.shift()
-            }
-
-            res.status(200).json({status: "ok", data: object});
         })
 
     }else{
