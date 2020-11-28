@@ -21,8 +21,7 @@ ControllerTarjeta.verificarTarjeta = (req,res) =>{
             tarjeta[0].year === year &&
             tarjeta[0].titular === titular ){
                 // También podemos devolver así la información:
-                res.status(200).json({ status: "ok", data: "Tarjeta aceptada por el sistema, " +
-                        "da click para continuar la compra" });
+                res.status(200).json({ status: "ok", data: "Tarjeta aceptada por el sistema" });
             }else{
                 // Devolvemos el código HTTP 404, de producto no encontrado por su id.
                 res.status(203).json({ status: "error", data: "Por favor verifique los datos"});

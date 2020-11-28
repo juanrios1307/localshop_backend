@@ -228,7 +228,7 @@ ControllerVenta.crearVenta = async (req, res) => {
             }
         });
         //Almacena compra
-        User.findByIdAndUpdate(comprador, {$push: {"Compras": registro.id}}, function (err) {
+        User.findByIdAndUpdate(comprador, {$push: {"Compras": registro.id}}, async function (err) {
             if (err) {
                 // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
                 return res.status(203).json({status: "error", data: "Error almacenando compra en comprador: " + comprador});
@@ -251,7 +251,8 @@ ControllerVenta.crearVenta = async (req, res) => {
 
                             var cantidad = (pubs[i].cantidad)
 
-                            await Producto.findById(pubs[i].producto, async function (err, product) {
+
+                            await Producto.findById(pubs[i].producto, function (err, product) {
                                 if (err) {
                                     // Si se ha producido un error, salimos de la función devolviendo  código http 422
                                     (res.type('json').status(203).send({
@@ -265,6 +266,7 @@ ControllerVenta.crearVenta = async (req, res) => {
                                     var total = product.precio * cantidad
                                     var comision = total * 0.05
 
+
                                     const PRODUCTO = {
                                         vendedor: product.user,
                                         producto: product.id,
@@ -274,38 +276,38 @@ ControllerVenta.crearVenta = async (req, res) => {
                                         total: total
                                     }
 
-                                    Venta.findByIdAndUpdate(registro.id, {$push: {productos: PRODUCTO}}, async function (err) {
+                                     Venta.findByIdAndUpdate(registro.id, {$push: {productos: PRODUCTO}},  function (err) {
                                         if (err) {
                                             res.type('json').status(203).send({
                                                 status: "error",
-                                                data: "Error actualizando venta"
+                                                data: "Error actualizando venta P"
                                             });
                                         } else {
-                                            await delay(100) //DELAY
 
-                                            await  Venta.findById(registro.id, async function (err, venta){
+                                              Venta.findById(registro.id,  function (err, venta){
                                                 if(err){
                                                     res.type('json').status(203).send({
                                                         status: "error",
                                                         data: "Error buscando venta"
                                                     });
                                                 }else{
-                                                    await Venta.findByIdAndUpdate(registro.id, {$set: {"total": (venta.total +total)}}, async function (err) {
+                                                     Venta.findByIdAndUpdate(registro.id, {$set: {"total": (venta.total +total)}},  function (err) {
                                                         if (err) {
                                                             res.type('json').status(203).send({
                                                                 status: "error",
-                                                                data: "Error actualizando venta"
+                                                                data: "Error actualizando venta t"
                                                             });
                                                         } else {
-                                                            await Venta.findByIdAndUpdate(registro.id, {$set: {"comision": (venta.comision + comision)}}, function (err) {
+                                                             Venta.findByIdAndUpdate(registro.id, {$set: {"comision": (venta.comision + comision)}},  function (err) {
                                                                 if (err) {
                                                                     res.type('json').status(203).send({
                                                                         status: "error",
-                                                                        data: "Error actualizando venta"
+                                                                        data: "Error actualizando venta c"
                                                                     });
                                                                 } else {
 
-                                                                    Producto.findByIdAndUpdate(product.id, {$set: {"stock": (product.stock - cantidad)}}, async function (err) {
+
+                                                                    Producto.findByIdAndUpdate(product.id, {$set: {"stock": (product.stock - cantidad)}},  function (err) {
                                                                         if (err) {
                                                                             //res.send(err);
                                                                             // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
@@ -314,7 +316,125 @@ ControllerVenta.crearVenta = async (req, res) => {
                                                                                 data: "Error actualizando stock"
                                                                             });
                                                                         } else {
-                                                                            User.findByIdAndUpdate(product.user, {$push: {"Ventas": registro.id}}, async function (err) {
+
+                                                                            delay(500) //DELAY
+
+                                                                            var mailOptions = {
+                                                                                from: 'localshop20202@outlook.com',
+                                                                                to: product.user.correo,
+                                                                                subject: "Nueva venta",
+                                                                                text: "Hola, " + product.user.nombre + " acabas de vender " + cantidad + " unidades de tu producto " + product.nombre
+                                                                            };
+
+                                                                            transporter.sendMail(mailOptions, function (error, info) {
+                                                                                if (error) {
+
+                                                                                } else {
+
+                                                                                }
+                                                                            });
+
+
+                                                                            Chat.find({$and: [{"user": comprador}, {"seller": product.user.id}]},async function (err, chat) {
+                                                                                if (err)
+                                                                                    // Si se ha producido un error, salimos de la función devolviendo  código http 422
+                                                                                    return (res.type('json').status(422).send({
+                                                                                        status: "error",
+                                                                                        data: "No se puede procesar la entidad, datos incorrectos!"
+                                                                                    }));
+
+                                                                                else {
+                                                                                    if (chat.length == 0) {
+
+                                                                                        console.log("chat nuevo  ")
+
+                                                                                       const chatVenta = new Chat({
+                                                                                            user:comprador,
+                                                                                            seller: product.user,
+                                                                                            Mensajes: []
+                                                                                        })
+
+                                                                                        await chatVenta.save()
+
+                                                                                        Chat.findById(chatVenta.id, function (err,chat){
+                                                                                            if (err) {
+                                                                                                // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                                                                                                res.status(404).json({ status: "error", data: "No se ha encontrado el usuario con id: "+chatVenta.id});
+                                                                                            } else {
+                                                                                                console.log("cantidad chat nuevo : "+cantidad)
+
+                                                                                                const mensaje ="Hola, Soy "+chat.user.nombre+", acabo de comprar "+ cantidad + " unidades de tu producto "+ product.nombre
+
+                                                                                                var Mensaje={
+                                                                                                    mensaje,
+                                                                                                    emisor:"user"
+                                                                                                }
+
+                                                                                               Chat.findByIdAndUpdate(chatVenta.id,{  $push : { Mensajes : Mensaje}},  function (err) {
+                                                                                                    if (err) {
+                                                                                                        // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                                                                                                        res.status(404).json({ status: "error", data: "No se ha encontrado el usuario con id: "+user});
+                                                                                                    } else {
+
+                                                                                                    }
+                                                                                                });
+
+                                                                                            }
+                                                                                        }).populate('user');//crea el chat
+
+                                                                                       await User.findByIdAndUpdate(comprador, {$push: {Chats: chatVenta.id}},   function (err) {
+                                                                                            if (err) {
+                                                                                                // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                                                                                                res.status(404).json({
+                                                                                                    status: "error",
+                                                                                                    data: "No se ha encontrado el usuario con id: " + user
+                                                                                                });
+                                                                                            } else {
+                                                                                                User.findByIdAndUpdate(product.user.id, {$push: {Chats: chatVenta.id}},  function (err) {
+                                                                                                    if (err) {
+                                                                                                        // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                                                                                                        res.status(404).json({
+                                                                                                            status: "error",
+                                                                                                            data: "No se ha encontrado el usuario con id: " + user
+                                                                                                        });
+                                                                                                    } else {
+
+                                                                                                    }
+
+                                                                                                })
+
+                                                                                            }
+                                                                                        })//guarda chats en comprador y seller
+
+
+                                                                                    }
+
+                                                                                    else {
+
+                                                                                        var mensaje ="Hola, Soy "+chat[0].user.nombre+", acabo de comprar "+ cantidad + " unidades de tu producto "+ product.nombre
+
+
+                                                                                        var Mensaje={
+                                                                                            mensaje,
+                                                                                            emisor:"user"
+                                                                                        }
+
+                                                                                        Chat.findByIdAndUpdate(chat[0]._id,{  $push : { Mensajes : Mensaje}}, function (err) {
+                                                                                            if (err) {
+                                                                                                // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                                                                                                res.status(404).json({ status: "error", data: "No se ha encontrado el usuario con id: "+chat[0]._id});
+                                                                                            } else {
+
+                                                                                            }
+
+                                                                                        })//añade mensaje al chat
+
+                                                                                    }
+
+                                                                                }
+                                                                            }).populate("user")//Busca si chat entre comprador y vendedor existe o lo crea
+
+                                                                            User.findByIdAndUpdate(product.user, {$push: {"Ventas": registro.id}},  function (err) {
                                                                                 if (err) {
                                                                                     // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
                                                                                     return res.status(203).json({
@@ -323,24 +443,9 @@ ControllerVenta.crearVenta = async (req, res) => {
                                                                                     });
                                                                                 } else {
 
-                                                                                    await delay(500) //DELAY
-
-                                                                                    var mailOptions = {
-                                                                                        from: 'localshop20202@outlook.com',
-                                                                                        to: product.user.correo,
-                                                                                        subject: "Nueva venta",
-                                                                                        text: "Hola, " + product.user.nombre + " acabas de vender " + cantidad + " unidades de tu producto " + product.nombre
-                                                                                    };
-
-                                                                                    await  transporter.sendMail(mailOptions, function (error, info) {
-                                                                                        if (error) {
-
-                                                                                        } else {
-
-                                                                                        }
-                                                                                    });
                                                                                 }
                                                                             }) //Agrega venta a usuario
+
                                                                         }
                                                                     }); //Actualiza stock
                                                                 }
@@ -362,12 +467,12 @@ ControllerVenta.crearVenta = async (req, res) => {
 
 
                 //Elimina lista de deseos
-                User.findByIdAndUpdate(comprador, {$unset:{Save:""}},{multi:true}, function (err) {
+                await User.findByIdAndUpdate(comprador, {$unset:{Save:""}},{multi:true}, function (err) {
                 if (err) {
                     // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
                     return res.status(203).json({status: "error", data: "No se ha encontrado el usuario con id: " + comprador});
                 } else {
-                    return res.status(200).json({status:"ok",data:"Venta Realizada",id:registro.id})
+                    return res.status(200).json({status:"ok",data:"Compra Realizada",id:registro.id})
                 }
                 });
 
@@ -478,7 +583,113 @@ ControllerVenta.crearVenta = async (req, res) => {
                                                                     data: "Error almacenando venta en vendedor: " + product.user
                                                                 });
                                                             } else {
-                                                                delay(500) //DELAY
+                                                                await delay(500) //DELAY
+
+                                                                Chat.find({$and: [{"user": comprador}, {"seller": product.user}]}, function (err, chat) {
+                                                                    if (err)
+                                                                        // Si se ha producido un error, salimos de la función devolviendo  código http 422
+                                                                        return (res.type('json').status(422).send({
+                                                                            status: "error",
+                                                                            data: "No se puede procesar la entidad, datos incorrectos!"
+                                                                        }));
+
+                                                                    else {
+                                                                        if (chat.length == 0) {
+
+                                                                            const chatVenta = new Chat({
+                                                                                user:comprador,
+                                                                                seller: product.user,
+                                                                                Mensajes: []
+                                                                            })
+
+                                                                            chatVenta.save()
+
+                                                                            User.findByIdAndUpdate(comprador, {$push: {Chats: chatVenta.id}}, function (err) {
+                                                                                if (err) {
+                                                                                    // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                                                                                    res.status(404).json({
+                                                                                        status: "error",
+                                                                                        data: "No se ha encontrado el usuario con id: " + user
+                                                                                    });
+                                                                                } else {
+
+                                                                                    User.findByIdAndUpdate(product.user.id, {$push: {Chats: chatVenta.id}}, function (err) {
+                                                                                        if (err) {
+                                                                                            // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                                                                                            res.status(404).json({
+                                                                                                status: "error",
+                                                                                                data: "No se ha encontrado el usuario con id: " + user
+                                                                                            });
+                                                                                        } else {
+
+                                                                                            Chat.findById(chatVenta.id,function (err,chat){
+                                                                                                if (err) {
+                                                                                                    // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                                                                                                    res.status(404).json({ status: "error", data: "No se ha encontrado el usuario con id: "+chatVenta.id});
+                                                                                                } else {
+
+                                                                                                    const mensaje ="Hola, Soy "+chat.user.nombre+", acabo de comprar "+ cantidad + " unidades de tu producto "+ product.nombre
+
+                                                                                                    var Mensaje={
+                                                                                                        mensaje,
+                                                                                                        emisor:"user"
+                                                                                                    }
+
+                                                                                                    Chat.findByIdAndUpdate(chatVenta.id,{  $push : { Mensajes : Mensaje}}, function (err) {
+                                                                                                        if (err) {
+                                                                                                            // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                                                                                                            res.status(404).json({ status: "error", data: "No se ha encontrado el usuario con id: "+user});
+                                                                                                        } else {
+
+                                                                                                        }
+
+                                                                                                    })
+
+                                                                                                }
+                                                                                            }).populate('user')
+
+                                                                                        }
+                                                                                    });
+
+                                                                                }
+                                                                            });
+
+                                                                        } else {
+
+                                                                            Chat.findById(chat[0]._id,function (err,chat) {
+                                                                                if (err) {
+                                                                                    // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                                                                                    res.status(404).json({
+                                                                                        status: "error",
+                                                                                        data: "No se ha encontrado el usuario con id: " + chat.id
+                                                                                    });
+                                                                                } else {
+
+                                                                                    const mensaje = "Hola, Soy " + chat.user.nombre + ", acabo de comprar " + cantidad + " unidades de tu producto " + product.nombre
+
+                                                                                    var Mensaje = {
+                                                                                        mensaje,
+                                                                                        emisor: "user"
+                                                                                    }
+
+                                                                                    Chat.findByIdAndUpdate(chat._id, {$push: {Mensajes: Mensaje}}, function (err) {
+                                                                                        if (err) {
+                                                                                            // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                                                                                            res.status(404).json({
+                                                                                                status: "error",
+                                                                                                data: "No se ha encontrado el chat con id: " + chat._id
+                                                                                            });
+                                                                                        } else {
+
+                                                                                        }
+
+                                                                                    })
+                                                                                }
+                                                                            }).populate('user')
+                                                                        }
+                                                                    }
+                                                                }).populate("user")//Busca si chat entre comprador y vendedor existe o lo crea
+
                                                                 var mailOptions = {
                                                                     from: 'localshop20202@outlook.com',
                                                                     to: product.user.correo,
@@ -493,6 +704,7 @@ ControllerVenta.crearVenta = async (req, res) => {
                                                                     } else {
                                                                     }
                                                                 });
+
                                                             }
                                                         }) //Agrega venta a usuario
                                                     }
@@ -508,12 +720,12 @@ ControllerVenta.crearVenta = async (req, res) => {
 
 
                 //Elimina lista de deseos
-                User.update({_id:comprador},  {  $pull : { "Save" : { "producto":producto} }}, function (err) {
+                await User.update({_id:comprador},  {  $pull : { "Save" : { "producto":producto} }}, function (err) {
                     if (err) {
                         // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
                         return res.status(203).json({status: "error", data: "No se ha encontrado el usuario con id: " + comprador});
                     } else {
-                        return res.status(200).json({status:"ok",data:"Venta Realizada",id:registro.id})
+                        return res.status(200).json({status:"ok",data:"Compra Realizada",id:registro.id})
                     }
                 });
 
@@ -607,7 +819,6 @@ ControllerVenta.obtenerMetodosPago = async (req,res) =>{
                 })
             }
 
-            console.log("sameUser: "+sameUser.toString())
 
             if(sameUser == true) {
                 await Producto.findById(pubs[0].producto, function (err, product) {
