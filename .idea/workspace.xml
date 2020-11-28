@@ -13,13 +13,28 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:heroku" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/UAT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07d2b8a8-b87b-411e-af51-a26b53643fd9" name="Default Changelist" comment="update controllerVenta.js" />
+    <list default="true" id="07d2b8a8-b87b-411e-af51-a26b53643fd9" name="Default Changelist" comment="update controllerVenta.js">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/controllerVenta.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/controllerVenta.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,15 +76,15 @@
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/controllers" />
-      <recent name="$PROJECT_DIR$/src/routes" />
-      <recent name="$PROJECT_DIR$/src/models" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/models" />
       <recent name="$PROJECT_DIR$/src/controllers" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/controllers" />
+      <recent name="$PROJECT_DIR$/src/routes" />
+      <recent name="$PROJECT_DIR$/src/models" />
     </key>
   </component>
   <component name="RunManager">
@@ -133,7 +148,17 @@
       <workItem from="1605623364638" duration="47000" />
       <workItem from="1605749382848" duration="683000" />
       <workItem from="1605785128181" duration="2543000" />
-      <workItem from="1606247069402" duration="2982000" />
+      <workItem from="1606247069402" duration="3760000" />
+      <workItem from="1606259425923" duration="524000" />
+      <workItem from="1606260532272" duration="3909000" />
+      <workItem from="1606331928628" duration="7024000" />
+      <workItem from="1606344627301" duration="6497000" />
+      <workItem from="1606353583785" duration="4326000" />
+      <workItem from="1606403968784" duration="9743000" />
+      <workItem from="1606417596049" duration="7937000" />
+      <workItem from="1606483175109" duration="10532000" />
+      <workItem from="1606495710632" duration="19000" />
+      <workItem from="1606573872803" duration="5149000" />
     </task>
     <task id="LOCAL-00001" summary="all all all">
       <created>1602177686728</created>
@@ -352,18 +377,110 @@
       <option name="project" value="LOCAL" />
       <updated>1606255858505</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="PR02">
+      <created>1606256594512</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1606256594512</updated>
+    </task>
+    <task id="LOCAL-00033" summary="PR02">
+      <created>1606260786917</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1606260786917</updated>
+    </task>
+    <task id="LOCAL-00034" summary="PR02">
+      <created>1606264437708</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1606264437708</updated>
+    </task>
+    <task id="LOCAL-00035" summary="PR03">
+      <created>1606342117667</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1606342117668</updated>
+    </task>
+    <task id="LOCAL-00036" summary="PR04">
+      <created>1606413708068</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1606413708068</updated>
+    </task>
+    <task id="LOCAL-00037" summary="PR04">
+      <created>1606417920050</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1606417920051</updated>
+    </task>
+    <task id="LOCAL-00038" summary="PR04">
+      <created>1606420005472</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1606420005472</updated>
+    </task>
+    <task id="LOCAL-00039" summary="PR04">
+      <created>1606425022206</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1606425022206</updated>
+    </task>
+    <task id="LOCAL-00040" summary="PR06">
+      <created>1606486268228</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1606486268228</updated>
+    </task>
+    <task id="LOCAL-00041" summary="PR07">
+      <created>1606495683154</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1606495683154</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/UAT" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -372,7 +489,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="all all all" />
     <MESSAGE value="registro, login, enviarEmail, updatePwd" />
     <MESSAGE value="controllers" />
     <MESSAGE value="ok rating, prom products" />
@@ -394,12 +510,17 @@
     <MESSAGE value="PR01" />
     <MESSAGE value="sprint 2 ok" />
     <MESSAGE value="PR02" />
-    <option name="LAST_COMMIT_MESSAGE" value="PR02" />
+    <MESSAGE value="PR03" />
+    <MESSAGE value="PR04" />
+    <MESSAGE value="PR06" />
+    <MESSAGE value="PR07" />
+    <option name="LAST_COMMIT_MESSAGE" value="PR07" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="177" y="27" width="1084" height="741" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602174792487">
+    <state x="177" y="27" width="1084" height="741" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606357168445">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
+    <state x="177" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1606357168444" />
     <state x="177" y="27" width="1084" height="741" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1294.741@72.27.1294.741" timestamp="1602174792487" />
     <state x="1930" y="171" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606254652806">
       <screen x="1366" y="0" width="1920" height="1080" />
@@ -415,53 +536,109 @@
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="2104" y="287" width="424" height="520" key="FileChooserDialogImpl/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606254904589" />
-    <state width="1897" height="291" key="GridCell.Tab.0.bottom" timestamp="1606254613161">
+    <state width="1897" height="751" key="GridCell.Tab.0.bottom" timestamp="1606579833575">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state width="1897" height="291" key="GridCell.Tab.0.bottom/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606254613161" />
-    <state width="1271" height="177" key="GridCell.Tab.0.bottom/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1605750069447" />
+    <state width="1897" height="751" key="GridCell.Tab.0.bottom/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606579833575" />
+    <state width="1271" height="276" key="GridCell.Tab.0.bottom/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1606578667044" />
     <state width="1271" height="177" key="GridCell.Tab.0.bottom/72.27.1294.741@72.27.1294.741" timestamp="1605790483185" />
     <state width="1897" height="428" key="GridCell.Tab.0.bottom/72.27.3214.1053@72.27.3214.1053" timestamp="1604963738300" />
-    <state width="1897" height="291" key="GridCell.Tab.0.center" timestamp="1606254613161">
+    <state width="1897" height="751" key="GridCell.Tab.0.center" timestamp="1606579833575">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state width="1897" height="291" key="GridCell.Tab.0.center/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606254613161" />
-    <state width="1271" height="177" key="GridCell.Tab.0.center/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1605750069447" />
+    <state width="1897" height="751" key="GridCell.Tab.0.center/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606579833575" />
+    <state width="1271" height="276" key="GridCell.Tab.0.center/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1606578667044" />
     <state width="1271" height="177" key="GridCell.Tab.0.center/72.27.1294.741@72.27.1294.741" timestamp="1605790483185" />
     <state width="1897" height="428" key="GridCell.Tab.0.center/72.27.3214.1053@72.27.3214.1053" timestamp="1604963738300" />
-    <state width="1897" height="291" key="GridCell.Tab.0.left" timestamp="1606254613161">
+    <state width="1897" height="751" key="GridCell.Tab.0.left" timestamp="1606579833575">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state width="1897" height="291" key="GridCell.Tab.0.left/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606254613161" />
-    <state width="1271" height="177" key="GridCell.Tab.0.left/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1605750069447" />
+    <state width="1897" height="751" key="GridCell.Tab.0.left/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606579833575" />
+    <state width="1271" height="276" key="GridCell.Tab.0.left/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1606578667043" />
     <state width="1271" height="177" key="GridCell.Tab.0.left/72.27.1294.741@72.27.1294.741" timestamp="1605790483184" />
     <state width="1897" height="428" key="GridCell.Tab.0.left/72.27.3214.1053@72.27.3214.1053" timestamp="1604963738299" />
-    <state width="1897" height="291" key="GridCell.Tab.0.right" timestamp="1606254613161">
+    <state width="1897" height="751" key="GridCell.Tab.0.right" timestamp="1606579833575">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state width="1897" height="291" key="GridCell.Tab.0.right/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606254613161" />
-    <state width="1271" height="177" key="GridCell.Tab.0.right/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1605750069447" />
+    <state width="1897" height="751" key="GridCell.Tab.0.right/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606579833575" />
+    <state width="1271" height="276" key="GridCell.Tab.0.right/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1606578667044" />
     <state width="1271" height="177" key="GridCell.Tab.0.right/72.27.1294.741@72.27.1294.741" timestamp="1605790483185" />
     <state width="1897" height="428" key="GridCell.Tab.0.right/72.27.3214.1053@72.27.3214.1053" timestamp="1604963738300" />
-    <state x="208" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1605048103247">
+    <state x="383" y="81" width="662" height="640" key="RollbackChangesDialog" timestamp="1606420661935">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="208" y="31" width="1022" height="737" key="SettingsEditor/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1605048103247" />
-    <state x="208" y="31" width="1022" height="737" key="SettingsEditor/72.27.1294.741@72.27.1294.741" timestamp="1603374694163" />
-    <state x="2139" y="155" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1606256091835">
-      <screen x="1366" y="0" width="1920" height="1080" />
+    <state x="383" y="81" width="662" height="640" key="RollbackChangesDialog/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1606420661935" />
+    <state x="208" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1606411082814">
+      <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="2139" y="155" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606256091835" />
-    <state x="556" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1605570374429" />
+    <state x="208" y="31" width="1022" height="737" key="SettingsEditor/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1606411082814" />
+    <state x="208" y="31" width="1022" height="737" key="SettingsEditor/72.27.1294.741@72.27.1294.741" timestamp="1603374694163" />
+    <state x="556" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1606495727852">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state x="2139" y="155" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606264443154" />
+    <state x="556" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1606495727852" />
     <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741@72.27.1294.741" timestamp="1605789295466" />
     <state x="1366" y="178" width="1920" height="761" key="Vcs.Push.Dialog.v2/72.27.3214.1053@72.27.3214.1053" timestamp="1604962834874" />
     <state x="2107" y="455" width="437" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606256292065">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="2107" y="455" width="437" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606256292065" />
+    <state x="1604" y="0" width="1005" height="697" maximized="true" key="dock-window-1" timestamp="1606579834096">
+      <screen x="1366" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1604" y="0" width="1005" height="697" maximized="true" key="dock-window-1/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606579834096" />
     <state x="382" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1603375027171">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="382" y="89" width="672" height="678" key="search.everywhere.popup/72.27.1294.741@72.27.1294.741" timestamp="1603375027171" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/controllerVenta.js</url>
+          <line>192</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/controllerVenta.js</url>
+          <line>253</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/controllerVenta.js</url>
+          <line>269</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/controllerVenta.js</url>
+          <line>430</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/controllerVenta.js</url>
+          <line>405</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/controllerVenta.js</url>
+          <line>375</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/controllerVenta.js</url>
+          <line>310</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
