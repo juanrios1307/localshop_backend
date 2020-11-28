@@ -15,7 +15,9 @@ route.all('/', function(req, res, next) {
 route.get('/compras/:id?',protectedRoutes.verifyToken,controlVenta.obtenerCompras)
 route.get('/ventas/:id?',protectedRoutes.verifyToken,controlVenta.obtenerVentas)
 route.get('/',protectedRoutes.verifyToken,controlVenta.obtenerInfoVenta)
+route.get('/methods',protectedRoutes.verifyToken,controlVenta.obtenerMetodosPago)
 route.post('/',protectedRoutes.verifyToken,controlVenta.crearVenta)
-
+route.put('/',protectedRoutes.verifyToken,controlVenta.cambiarEstado)
+route.get('/giro',protectedRoutes.verifyToken,controlVenta.obtenerInfoGiro)
 
 module.exports =route
