@@ -31,7 +31,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07d2b8a8-b87b-411e-af51-a26b53643fd9" name="Default Changelist" comment="update controllerVenta.js" />
+    <list default="true" id="07d2b8a8-b87b-411e-af51-a26b53643fd9" name="Default Changelist" comment="update controllerVenta.js">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/controllerVenta.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/controllerVenta.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,6 +156,9 @@
       <workItem from="1606353583785" duration="4326000" />
       <workItem from="1606403968784" duration="9743000" />
       <workItem from="1606417596049" duration="7937000" />
+      <workItem from="1606483175109" duration="10532000" />
+      <workItem from="1606495710632" duration="19000" />
+      <workItem from="1606573872803" duration="5149000" />
     </task>
     <task id="LOCAL-00001" summary="all all all">
       <created>1602177686728</created>
@@ -427,7 +433,21 @@
       <option name="project" value="LOCAL" />
       <updated>1606425022206</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="PR06">
+      <created>1606486268228</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1606486268228</updated>
+    </task>
+    <task id="LOCAL-00041" summary="PR07">
+      <created>1606495683154</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1606495683154</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -469,7 +489,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="all all all" />
     <MESSAGE value="registro, login, enviarEmail, updatePwd" />
     <MESSAGE value="controllers" />
     <MESSAGE value="ok rating, prom products" />
@@ -493,7 +512,9 @@
     <MESSAGE value="PR02" />
     <MESSAGE value="PR03" />
     <MESSAGE value="PR04" />
-    <option name="LAST_COMMIT_MESSAGE" value="PR04" />
+    <MESSAGE value="PR06" />
+    <MESSAGE value="PR07" />
+    <option name="LAST_COMMIT_MESSAGE" value="PR07" />
   </component>
   <component name="WindowStateProjectService">
     <state x="177" y="27" width="1084" height="741" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606357168445">
@@ -515,32 +536,32 @@
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="2104" y="287" width="424" height="520" key="FileChooserDialogImpl/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606254904589" />
-    <state width="1271" height="307" key="GridCell.Tab.0.bottom" timestamp="1606439430464">
+    <state width="1897" height="751" key="GridCell.Tab.0.bottom" timestamp="1606579833575">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state width="1271" height="307" key="GridCell.Tab.0.bottom/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606439430464" />
-    <state width="1271" height="307" key="GridCell.Tab.0.bottom/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1606425775966" />
+    <state width="1897" height="751" key="GridCell.Tab.0.bottom/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606579833575" />
+    <state width="1271" height="276" key="GridCell.Tab.0.bottom/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1606578667044" />
     <state width="1271" height="177" key="GridCell.Tab.0.bottom/72.27.1294.741@72.27.1294.741" timestamp="1605790483185" />
     <state width="1897" height="428" key="GridCell.Tab.0.bottom/72.27.3214.1053@72.27.3214.1053" timestamp="1604963738300" />
-    <state width="1271" height="307" key="GridCell.Tab.0.center" timestamp="1606439430463">
+    <state width="1897" height="751" key="GridCell.Tab.0.center" timestamp="1606579833575">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state width="1271" height="307" key="GridCell.Tab.0.center/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606439430463" />
-    <state width="1271" height="307" key="GridCell.Tab.0.center/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1606425775966" />
+    <state width="1897" height="751" key="GridCell.Tab.0.center/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606579833575" />
+    <state width="1271" height="276" key="GridCell.Tab.0.center/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1606578667044" />
     <state width="1271" height="177" key="GridCell.Tab.0.center/72.27.1294.741@72.27.1294.741" timestamp="1605790483185" />
     <state width="1897" height="428" key="GridCell.Tab.0.center/72.27.3214.1053@72.27.3214.1053" timestamp="1604963738300" />
-    <state width="1271" height="307" key="GridCell.Tab.0.left" timestamp="1606439430463">
+    <state width="1897" height="751" key="GridCell.Tab.0.left" timestamp="1606579833575">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state width="1271" height="307" key="GridCell.Tab.0.left/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606439430463" />
-    <state width="1271" height="307" key="GridCell.Tab.0.left/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1606425775965" />
+    <state width="1897" height="751" key="GridCell.Tab.0.left/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606579833575" />
+    <state width="1271" height="276" key="GridCell.Tab.0.left/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1606578667043" />
     <state width="1271" height="177" key="GridCell.Tab.0.left/72.27.1294.741@72.27.1294.741" timestamp="1605790483184" />
     <state width="1897" height="428" key="GridCell.Tab.0.left/72.27.3214.1053@72.27.3214.1053" timestamp="1604963738299" />
-    <state width="1271" height="307" key="GridCell.Tab.0.right" timestamp="1606439430463">
+    <state width="1897" height="751" key="GridCell.Tab.0.right" timestamp="1606579833575">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state width="1271" height="307" key="GridCell.Tab.0.right/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606439430463" />
-    <state width="1271" height="307" key="GridCell.Tab.0.right/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1606425775966" />
+    <state width="1897" height="751" key="GridCell.Tab.0.right/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606579833575" />
+    <state width="1271" height="276" key="GridCell.Tab.0.right/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1606578667044" />
     <state width="1271" height="177" key="GridCell.Tab.0.right/72.27.1294.741@72.27.1294.741" timestamp="1605790483185" />
     <state width="1897" height="428" key="GridCell.Tab.0.right/72.27.3214.1053@72.27.3214.1053" timestamp="1604963738300" />
     <state x="383" y="81" width="662" height="640" key="RollbackChangesDialog" timestamp="1606420661935">
@@ -552,20 +573,72 @@
     </state>
     <state x="208" y="31" width="1022" height="737" key="SettingsEditor/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1606411082814" />
     <state x="208" y="31" width="1022" height="737" key="SettingsEditor/72.27.1294.741@72.27.1294.741" timestamp="1603374694163" />
-    <state x="556" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1606425103688">
+    <state x="556" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1606495727852">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="2139" y="155" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606264443154" />
-    <state x="556" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1606425103688" />
+    <state x="556" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1606495727852" />
     <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741@72.27.1294.741" timestamp="1605789295466" />
     <state x="1366" y="178" width="1920" height="761" key="Vcs.Push.Dialog.v2/72.27.3214.1053@72.27.3214.1053" timestamp="1604962834874" />
     <state x="2107" y="455" width="437" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606256292065">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="2107" y="455" width="437" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606256292065" />
+    <state x="1604" y="0" width="1005" height="697" maximized="true" key="dock-window-1" timestamp="1606579834096">
+      <screen x="1366" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1604" y="0" width="1005" height="697" maximized="true" key="dock-window-1/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1606579834096" />
     <state x="382" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1603375027171">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="382" y="89" width="672" height="678" key="search.everywhere.popup/72.27.1294.741@72.27.1294.741" timestamp="1603375027171" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/controllerVenta.js</url>
+          <line>192</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/controllerVenta.js</url>
+          <line>253</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/controllerVenta.js</url>
+          <line>269</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/controllerVenta.js</url>
+          <line>430</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/controllerVenta.js</url>
+          <line>405</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/controllerVenta.js</url>
+          <line>375</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/controllerVenta.js</url>
+          <line>310</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
