@@ -461,20 +461,32 @@ ControllerVenta.crearVenta = async (req, res) => {
                             }).populate('user') //Busca PRODUCTO
                         }//Cierra for
 
+                        await Venta.findById(registro.id, async function(err,venta){
+                            if(err){
+                                return res.status(203).json({status: "error", data: "Error almacenando compra en comprador: " + comprador});
+                            }else{
+                                if(venta.productos==null || venta.productos.length==0){
+
+                                    return res.status(203).json({status: "error", data: "Ha ocurrido un problema en el sistema, por favor reintenta el proceso de compra"});
+                                }else{
+                                    //Elimina lista de deseos
+                                    await User.findByIdAndUpdate(comprador, {$unset:{Save:""}},{multi:true}, function (err) {
+                                        if (err) {
+                                            // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                                            return res.status(203).json({status: "error", data: "No se ha encontrado el usuario con id: " + comprador});
+                                        } else {
+                                            return res.status(200).json({status:"ok",data:"Compra Realizada",id:registro.id})
+                                        }
+                                    });//Elimina carrito
+                                }
+                            }
+                        })//Busca venta
+
                     }
 
                 }) //Busca ProductosGardados
 
 
-                //Elimina lista de deseos
-                await User.findByIdAndUpdate(comprador, {$unset:{Save:""}},{multi:true}, function (err) {
-                if (err) {
-                    // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
-                    return res.status(203).json({status: "error", data: "No se ha encontrado el usuario con id: " + comprador});
-                } else {
-                    return res.status(200).json({status:"ok",data:"Compra Realizada",id:registro.id})
-                }
-                });
 
                // return res.status(200).json({status:"ok",data:"Venta Realizada"})
             }
@@ -719,15 +731,26 @@ ControllerVenta.crearVenta = async (req, res) => {
                 }).populate('user') //Busca PRODUCTO
 
 
-                //Elimina lista de deseos
-                await User.update({_id:comprador},  {  $pull : { "Save" : { "producto":producto} }}, function (err) {
-                    if (err) {
-                        // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
-                        return res.status(203).json({status: "error", data: "No se ha encontrado el usuario con id: " + comprador});
-                    } else {
-                        return res.status(200).json({status:"ok",data:"Compra Realizada",id:registro.id})
+                await Venta.findById(registro.id, async function(err,venta){
+                    if(err){
+                        return res.status(203).json({status: "error", data: "Error almacenando compra en comprador: " + comprador});
+                    }else{
+                        if(venta.productos==null || venta.productos.length==0){
+
+                            return res.status(203).json({status: "error", data: "Ha ocurrido un problema en el sistema, por favor reintenta el proceso de compra"});
+                        }else{
+                            //Elimina lista de deseos
+                            await User.update({_id:comprador},  {  $pull : { "Save" : { "producto":producto} }}, function (err) {
+                                if (err) {
+                                    // Devolvemos el código HTTP 404, de usuario no encontrado por su id.
+                                    return res.status(203).json({status: "error", data: "No se ha encontrado el usuario con id: " + comprador});
+                                } else {
+                                    return res.status(200).json({status:"ok",data:"Compra Realizada",id:registro.id})
+                                }
+                            });
+                        }
                     }
-                });
+                })
 
                  //return res.status(200).json({status:"ok",data:"Venta Realizada"})
             }
